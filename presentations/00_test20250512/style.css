@@ -88,13 +88,6 @@ p { margin-bottom: 1.6rem; }
 
 strong { font-weight: bold; }
 
-/* --- Hide Print Header/Footer in Screen View --- */
-.print-header,
-.print-footer {
-    display: none;
-}
-
-
 /* ================================================== */
 /* =============== CSS Variables (WP) =============== */
 /* ================================================== */
