@@ -1,201 +1,78 @@
-@charset "UTF-8";
+/* style_print.css */
 
-/* ==========================================================================
-   1. CSS Variables (印刷用の変数定義や上書き)
-   ========================================================================== */
 :root {
-    /* style.css で定義された変数を上書き、または印刷専用の変数を定義 */
-    --color-text: #000000;
-    --color-heading: #000000;
-    --color-background: #ffffff;
-    --color-slide-background: #ffffff;
-    --base-font-size-print: 10pt; /* 印刷時の基本フォントサイズ */
-    --line-height-print: 1.5;
+    /* Print variable overrides (元々あったもの) */
+    --color-text-wp: var(--color-black-wp); /* style.cssにある */
+    --color-heading-wp: var(--color-black-wp);
+    --logo-image-path: url('../assets/images/common/logo/logo-small.png'); 
 
-    /* 共通パーツCSSで使われる可能性のある変数もここで定義/上書き */
-    --color-primary: #000000; /* 印刷時は黒にするなど */
-    --color-secondary: #333333;
-    --color-accent: #555555;
-
-    /* JavaScriptで挿入するヘッダー/フッター用の高さなど (もしあれば) */
-    --print-header-height: 1cm;
-    --print-footer-height: 1cm;
-    --print-vertical-margin: 0.5cm; /* ヘッダー/フッターとスライド内容の間の余白 */
+    /* もし style.css で定義されている変数をここで上書きまたは定義するなら */
+    --color-black-wp: #000000; /* 例: 直接定義 */
+    --color-white-wp: #ffffff; /* 例: 直接定義 */
+    --print-header-height: 1.2cm; /* 例: 直接定義 */
+    --print-footer-height: 0.8cm; /* 例: 直接定義 */
+    --print-v-margin: 0.6cm; /* 例: 直接定義 */
 }
 
-/* ==========================================================================
-   2. @page Rule (用紙サイズ、マージン、CSSヘッダー/フッター)
-   ========================================================================== */
+
 @page {
-    size: A4 landscape; /* A4横向き (または portrait) */
-    margin: 1.5cm;      /* 用紙全体の余白 */
+    size: A4 landscape; /* A4横向き */
+    margin: 1cm; /* ★style_wp.css と同じ値にしてみる★ */
 
-    /* --- CSSによるヘッダー/フッター (ブラウザデフォルトを抑制し、独自の内容を表示) --- */
-    @top-left {
-        /* content: "社外秘"; */
-        /* font-size: 8pt; color: #666; */
-    }
-    @top-center {
-        content: "[資料タイトル]"; /* ここに実際の資料タイトルを入れるか、JSで動的に */
-        font-size: 9pt;
-        font-weight: bold;
-        vertical-align: bottom;
-        padding-bottom: 5mm;
-    }
-    @top-right {
-        content: var(--logo-image-path); /* ロゴ画像のパス (css/style.cssの:rootで定義推奨) */
-        /* vertical-align: middle; */
-        /* margin-right: 0; */ /* 右端ぴったりに */
-    }
-    @bottom-left {
-        content: "Your Company Name Ltd.";
-        font-size: 8pt;
-        vertical-align: top;
-        padding-top: 5mm;
-    }
-    @bottom-center {
-        /* content: "- " counter(page) " -"; */
-    }
-    @bottom-right {
-        content: "Page " counter(page) " / " counter(pages);
-        font-size: 8pt;
-        vertical-align: top;
-        padding-top: 5mm;
-    }
+    @top-left { content: ""; }
+    @top-center { content: ""; }
+    @top-right { content: var(--logo-image-path);
+        margin-right: 1cm; /* 右端からの余白 */
+            }
+    @bottom-left { content: ""; }
+    @bottom-center { content: ""; }
+    @bottom-right { content: ""; }
 }
 
-/* ==========================================================================
-   3. @media print Block (印刷時特有のスタイル)
-   ========================================================================== */
+/* ================================================== */
+/* ================= Print Styles =================== */
+/* ================================================== */
 @media print {
 
-    /* --- 基本的なリセットとデフォルト --- */
-    html, body {
-        font-size: var(--base-font-size-print) !important;
-        line-height: var(--line-height-print) !important;
-        color: var(--color-text) !important;
-        background-color: var(--color-background) !important;
-        -webkit-print-color-adjust: exact !important; /* 背景色や画像を印刷 */
-        print-color-adjust: exact !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
 
-    h1, h2, h3, h4, h5, h6 {
-        color: var(--color-heading) !important;
-        page-break-after: avoid !important; /* 見出しの直後で改ページしない */
-        page-break-inside: avoid !important; /* 見出しの途中で改ページしない */
-    }
-    h1 { font-size: 18pt !important; }
-    h2 { font-size: 15pt !important; }
-    p { margin-bottom: 0.8em !important; }
-    a { color: inherit !important; text-decoration: none !important; }
-    img { page-break-inside: avoid !important; }
-
-    /* --- スライドのレイアウト調整 --- */
-    main.presentation-content {
-        margin: 0 !important;
-        padding: 0 !important;
-        width: auto !important; /* 用紙幅に合わせる */
-        max-width: none !important;
-    }
-    .slide {
-        width: 100% !important; /* 用紙幅いっぱい (マージンは@pageで制御) */
-        min-height: 0 !important; /* 最小高さをリセット */
-        height: auto !important; /* 内容に応じて高さを自動調整 */
-        padding: 0 !important; /* スライド自体のパディングは0 (中の要素で調整) */
-        /* ヘッダー/フッター領域をJSで確保する場合のパディング例 */
-        /* padding-top: calc(var(--print-header-height) + var(--print-vertical-margin)) !important; */
-        /* padding-bottom: calc(var(--print-footer-height) + var(--print-vertical-margin)) !important; */
-        margin: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-        page-break-before: always !important; /* 最初のスライド以外は前に改ページ */
-        page-break-after: always !important;  /* 各スライドの後に改ページ */
-        page-break-inside: avoid !important; /* スライドの途中で改ページしない */
-        background-color: var(--color-slide-background) !important;
-        display: block !important; /* 印刷時は基本的にブロック要素として扱う */
-        position: relative !important; /* JSでのヘッダー/フッター配置の基準 */
-        overflow: visible !important; /* 内容がはみ出ても表示されるように */
-    }
-    .slide:first-child {
-        page-break-before: auto !important; /* 最初のスライドの前には改ページしない */
-    }
-    .slide:last-child {
-        page-break-after: auto !important; /* 最後のスライドの後には改ページしない */
-    }
-
-    /* --- JavaScriptで挿入されるヘッダー/フッターのスタイル (もしあれば) --- */
-    .print-header {
-        display: flex !important; /* または block */
-        position: absolute !important;
-        top: 0; /* @page の margin を考慮して調整 */
-        left: 0;/* @page の margin を考慮して調整 */
-        right: 0;/* @page の margin を考慮して調整 */
-        height: var(--print-header-height);
-        /* background-color: lightyellow; */ /* 確認用 */
-        z-index: 10;
-        /* padding: 0 var(--page-margin-horizontal); */ /* @pageのmarginと合わせる */
-        box-sizing: border-box;
-        align-items: center; /* 内容を垂直中央揃え */
-        justify-content: flex-end; /* 内容を右揃え */
-    }
-    .print-header .print-logo {
-        max-height: calc(var(--print-header-height) - 2mm); /* ヘッダー高さより少し小さく */
-        width: auto;
-        margin-right: 5mm; /* 右端からの余白 */
-    }
-
+    /* --- Print Header/Footer Containers --- */
+    .print-header,
     .print-footer {
         display: flex !important;
+        align-items: center;
         position: absolute !important;
-        bottom: 0; /* @page の margin を考慮して調整 */
-        left: 0; /* @page の margin を考慮して調整 */
-        right: 0; /* @page の margin を考慮して調整 */
-        height: var(--print-footer-height);
-        /* background-color: lightcyan; */ /* 確認用 */
-        z-index: 10;
-        /* padding: 0 var(--page-margin-horizontal); */
-        box-sizing: border-box;
-        align-items: center; /* 内容を垂直中央揃え */
-        justify-content: space-between; /* 内容を左右均等配置 */
-        font-size: 7pt;
-        color: #333;
-        /* border-top: 1px solid #ccc; */
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 100 !important;
     }
-    .print-footer .footer-left,
-    .print-footer .footer-center,
-    .print-footer .footer-right {
-        padding: 0 5mm;
+    .print-header {
+        top: 0 !important;
+        height: var(--print-header-height) !important;
+        justify-content: flex-end !important;
+        padding: 0 0.5cm !important;
+        background-color: transparent !important;
+        border: none !important;
     }
-    .print-footer .footer-center { text-align: center; flex-grow: 1; }
-    .print-footer .footer-right { text-align: right; }
-
-
-    /* --- 特定の共通パーツのスタイルを印刷用に上書き --- */
-    /* 例: .pricing-table のボーダーを細くするなど */
-    /*
-    .pricing-table,
-    .pricing-table th,
-    .pricing-table td {
-        border-width: 0.5pt !important;
-    }
-    */
-
-    /* --- 画面表示専用の要素を非表示 --- */
-    .screen-only {
-        display: none !important;
+    .print-footer {
+        bottom: 0 !important;
+        height: var(--print-footer-height) !important;
+        justify-content: space-between !important;
+        padding: 0 0 !important;
+        background-color: #333 !important;
+        color: var(--color-white-wp) !important;
+        font-size: 10pt !important;
+        border: none !important;
     }
 
-    /* --- 改ページ調整用のdivのスタイル (print-page-break-adjuster) --- */
-    .print-page-break-adjuster {
-        display: block !important; /* 印刷時のみ有効化 */
-        height: 0; /* 通常は高さを0に */
-        visibility: hidden; /* 見えないように */
-        /* margin-top は各スライドIDで指定 */
+
+    /* --- Print Slide Adjustments --- */
+    .slide {
+        padding-top: calc(var(--print-header-height) + var(--print-v-margin)) !important;
+        padding-bottom: calc(var(--print-footer-height) + var(--print-v-margin)) !important;
+        overflow: visible !important; 
+        position: relative !important;
     }
-    #slide-cover .print-page-break-adjuster { margin-top: 60mm !important; }
-    #slide-introduction .print-page-break-adjuster { margin-top: 50mm !important; }
-    /* ... 他の #slide-id .print-page-break-adjuster スタイル ... */
+
 
 } /* End of @media print */

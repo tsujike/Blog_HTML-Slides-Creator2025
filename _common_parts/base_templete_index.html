@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="base_style.css" media="screen">
     <!-- 印刷時専用のCSS -->
     <link rel="stylesheet" href="base_style_print.css" media="print">
+
+        <!-- この資料専用の印刷時スタイル調整 -->
+    <style media="print">
+        /* tgg_sf_mx_jp_company 資料の印刷時スライド下部余白調整 */
+        #slide-cover .print-page-break-adjuster { margin-top: 60mm !important; }
+        #slide-introduction .print-page-break-adjuster { margin-top: 50mm !important; }
+        #slide-market-opportunity .print-page-break-adjuster { margin-top: 40mm !important; }
+        #slide-about-tg .print-page-break-adjuster { margin-top: 55mm !important; }
+        #slide-product-lineup .print-page-break-adjuster { margin-top: 30mm !important; }
+        #slide-partnership-merits .print-page-break-adjuster { margin-top: 45mm !important; }
+        #slide-next-steps .print-page-break-adjuster { margin-top: 70mm !important; }
+        /* #slide-closing には adjuster が不要なら指定しない */
+    </style>
+
 </head>
 
 <body>
