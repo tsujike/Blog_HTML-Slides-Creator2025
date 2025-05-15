@@ -413,7 +413,7 @@ ol.partnership-steps li::before {}
 
     /* Specific bottom margin adjustments for print using the adjuster div */
     /* These values are examples and need to be fine-tuned by observing the print preview */
-    #slide-cover .print-page-break-adjuster { margin-top: 30mm !important; }
+    #slide-cover .print-page-break-adjuster { margin-top: 60mm !important; }
     #slide-introduction .print-page-break-adjuster { margin-top: 50mm !important; }
     #slide-opportunity .print-page-break-adjuster { margin-top: 50mm !important; }
     #slide-about-tg .print-page-break-adjuster { margin-top: 50mm !important; }
