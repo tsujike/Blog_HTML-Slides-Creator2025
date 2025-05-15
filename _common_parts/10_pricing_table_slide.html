@@ -1,0 +1,113 @@
+<!--
+================================================================================
+パーツ名: 価格表スライド コンテンツ (Pricing Table Slide Content)
+ファイル名: 10_pricing_table_slide.html
+作成日: YYYY-MM-DD (実際の作成日を入れてください)
+更新日: YYYY-MM-DD (実際の更新日を入れてください)
+バージョン: 1.0
+
+【説明】
+製品やサービスの価格プラン、各プランに含まれる機能や条件などを
+表形式などで分かりやすく提示するためのHTML構造を提供します。
+
+【使い方】
+1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
+2. 各プレゼンテーション資料のHTMLファイル内で、価格表を表示したい
+   <section class="slide slide-pricing"> (または同等の価格表用クラスを持つ要素) の
+   コンテンツエリアにペーストしてください。
+   例:
+   <section class="slide slide-pricing">
+       <div class="slide-content"> <!-- この中にペースト -->
+           <!-- ここに価格表スライドのコンテンツをペースト -->
+       </div>
+       <!-- (もしあれば) print-page-break-adjuster など -->
+   </section>
+
+【依存関係】
+- CSS:
+    - このパーツの基本的なスタイルは、対応するCSSファイル (10_pricing_table_slide.css) に記述されています。
+    - 10_pricing_table_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
+    - このパーツは、親要素に `.slide` 及び `.slide-pricing` (または価格表用スライドの類似クラス) が指定され、
+      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
+- JavaScript:
+    - 特になし (もし価格シミュレーションなどの動的な機能があれば、ここに記述)
+
+【カスタマイズのポイント】
+- スライドのタイトル (例: <h2>料金プラン</h2>, <h2>価格について</h2>) は適宜変更可能です。
+- プラン名、価格、各プランで提供される機能やサービス内容、注意書きなどを正確に記述してください。
+- 表 (<table>) を使うのが一般的ですが、複数のプランをカード形式で並べるレイアウトも考えられます。
+- 推奨プランを目立たせるなどのデザイン的な工夫も有効です。
+- 各要素に付与するクラス名 (例: "pricing-plan", "feature-list") は、対応するCSS (10_pricing_table_slide.css) でスタイルが定義されている場合、変更するとCSS側も修正が必要です。
+
+【基本的なHTML構造の注意】
+- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
+- HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
+  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
+- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
+================================================================================
+-->
+
+<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+
+<!-- ここに10_pricing_table_slide.htmlの実際のHTMLコードが入ります -->
+<!-- 例: 3つのプランを比較するテーブル形式の価格表 -->
+<!--
+<h2 class="pricing-slide-title">料金プランのご案内</h2>
+
+<table class="pricing-table">
+    <thead>
+        <tr>
+            <th> </th> <!-- 左上の空セル -->
+            <th class="plan-name basic-plan">ベーシックプラン</th>
+            <th class="plan-name standard-plan recommended">スタンダードプラン <span class="recommend-badge">おすすめ</span></th>
+            <th class="plan-name premium-plan">プレミアムプラン</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="price-row">
+            <td class="feature-label">月額料金</td>
+            <td class="price-value">¥X,XXX</td>
+            <td class="price-value">¥Y,YYY</td>
+            <td class="price-value">¥Z,ZZZ</td>
+        </tr>
+        <tr>
+            <td class="feature-label">機能A</td>
+            <td>✔️</td>
+            <td>✔️</td>
+            <td>✔️</td>
+        </tr>
+        <tr>
+            <td class="feature-label">機能B</td>
+            <td>-</td>
+            <td>✔️</td>
+            <td>✔️</td>
+        </tr>
+        <tr>
+            <td class="feature-label">機能C</td>
+            <td>-</td>
+            <td>-</td>
+            <td>✔️</td>
+        </tr>
+        <tr>
+            <td class="feature-label">サポート</td>
+            <td>メール</td>
+            <td>メール・チャット</td>
+            <td>電話・専任担当</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="pricing-notes">
+                <p>※表示価格は全て税抜きです。※最低契約期間は〇ヶ月です。</p>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="additional-pricing-info">
+    <p>詳細なオプションやカスタマイズについては、別途お問い合わせください。</p>
+</div>
+-->
+
+<!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

@@ -1,0 +1,113 @@
+/* _common_parts/03_company_profile_slide.css */
+/* スタイル名: 会社概要スライド コンテンツ用スタイル */
+/* 対応HTML: 03_company_profile_slide.html */
+
+/*
+  このCSSは、03_company_profile_slide.html のHTML構造に対応する基本的なスタイルを提供します。
+  通常、このファイルはプロジェクトのメインCSS (例: css/style.css) から @import されます。
+  親要素に .slide 及び .slide-company-profile クラス、さらに .slide-content クラスを持つ要素が
+  存在することを前提としたスタイル指定が含まれる場合があります。
+*/
+
+
+/* --- 会社概要スライド内の要素の基本的な配置やスタイル --- */
+
+/* 会社概要スライドのメインタイトル (.company-profile-title) のスタイル例 */
+.company-profile-title {
+    font-size: 2.0em; /* 親要素のフォントサイズに対する相対的な大きさ (適宜調整) */
+    /* color: #333; */
+    font-weight: bold;
+    text-align: left; /* 左揃えが一般的か */
+    margin-top: 0;
+    margin-bottom: 1.2em;
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid #ddd; /* タイトル下に薄い区切り線 */
+}
+
+/* 会社詳細情報全体を囲むコンテナ (.company-details) のスタイル例 */
+.company-details {
+    /* display: grid; */ /* グリッドレイアウトを使う場合 (後述) */
+    /* grid-template-columns: auto 1fr; */ /* ラベルと値の列 */
+    /* gap: 10px 20px; */ /* 行間と列間のスペース */
+}
+
+/* 各情報項目 (.profile-item) のスタイル例 */
+.profile-item {
+    display: flex; /* ラベルと値を横並びにする場合 (デフォルトは縦積み) */
+    /* align-items: baseline; */ /* テキストのベースラインを合わせる */
+    padding: 0.6em 0;
+    border-bottom: 1px dotted #eee; /* 各項目の間に非常に薄い点線 (任意) */
+    font-size: 1.1em; /* やや大きめのフォント */
+}
+
+.profile-item:last-of-type { /* 最後の項目だけ下の線を消す (もし .company-logo-area が最後ならそちらに適用) */
+    /* border-bottom: none; */
+}
+
+/* 情報項目のラベル (.item-label) のスタイル例 */
+.item-label {
+    font-weight: bold;
+    /* color: #555; */
+    min-width: 120px; /* ラベルの最小幅を確保して揃える (適宜調整) */
+    margin-right: 1em;
+    flex-shrink: 0; /* ラベルが縮まないように */
+}
+
+/* 情報項目の値 (.item-value) のスタイル例 */
+.item-value {
+    /* color: #333; */
+    flex-grow: 1; /* 値部分が残りのスペースを埋める */
+}
+
+/* 事業内容などのリスト (.item-value ul) のスタイル例 */
+.item-value ul {
+    list-style-type: disc; /* 通常の黒丸リスト */
+    padding-left: 1.5em; /* リストの左パディング */
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+.item-value ul li {
+    margin-bottom: 0.3em;
+}
+
+
+/* 会社ロゴエリア (.company-logo-area) のスタイル例 */
+.company-logo-area {
+    margin-top: 2em; /* 他の項目との間に少し大きめのスペース */
+    text-align: center; /* ロゴを中央に配置 */
+    border-bottom: none; /* ロゴエリアの下線は不要 */
+}
+
+.company-profile-logo {
+    max-width: 200px; /* ロゴの最大幅 (適宜調整) */
+    height: auto;
+}
+
+
+/* --- グリッドレイアウトを使う場合の代替案 (コメントアウト) --- */
+/*
+.company-details-grid {
+    display: grid;
+    grid-template-columns: auto 1fr; // ラベル列は内容に合わせ、値列は残り全部
+    gap: 0.8em 1.5em; // 行間 列間
+    align-items: baseline; // テキストのベースラインを揃える
+}
+.company-details-grid .item-label {
+    font-weight: bold;
+    text-align: right; // ラベルを右揃えにすると綺麗に見えることも
+}
+.company-details-grid .item-value {
+    // 特に指定なし (1fr で幅が確保される)
+}
+.company-details-grid .profile-item { // グリッドを使う場合、profile-item は不要か、別の役割に
+    display: contents; // profile-item をグリッドレイアウトの一部として扱う
+}
+*/
+
+/*
+  注意:
+  - レイアウト方法はFlexboxを使った例と、コメントアウトでGridを使った例を示しています。
+    どちらか、または両方を組み合わせて、見やすいレイアウトを目指してください。
+  - 各項目のラベルと値が綺麗に縦に揃うように、ラベルの幅 (min-width) や、
+    Gridレイアウトのカラム設定を調整することが重要です。
+*/

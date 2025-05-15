@@ -1,0 +1,94 @@
+<!--
+================================================================================
+パーツ名: 会社概要スライド コンテンツ (Company Profile Slide Content)
+ファイル名: 03_company_profile_slide.html
+作成日: YYYY-MM-DD (実際の作成日を入れてください)
+更新日: YYYY-MM-DD (実際の更新日を入れてください)
+バージョン: 1.0
+
+【説明】
+会社の基本的な情報（会社名、設立年、事業内容、所在地、代表者名、企業理念など）を
+紹介するためのHTML構造を提供します。
+
+【使い方】
+1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
+2. 各プレゼンテーション資料のHTMLファイル内で、会社概要を表示したい
+   <section class="slide slide-company-profile"> (または同等の会社概要用クラスを持つ要素) の
+   コンテンツエリアにペーストしてください。
+   例:
+   <section class="slide slide-company-profile">
+       <div class="slide-content"> <!-- この中にペースト -->
+           <!-- ここに会社概要スライドのコンテンツをペースト -->
+       </div>
+       <!-- (もしあれば) print-page-break-adjuster など -->
+   </section>
+
+【依存関係】
+- CSS:
+    - このパーツの基本的なスタイルは、対応するCSSファイル (03_company_profile_slide.css) に記述されています。
+    - 03_company_profile_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
+    - このパーツは、親要素に `.slide` 及び `.slide-company-profile` (または会社概要用の類似クラス) が指定され、
+      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
+- JavaScript:
+    - 特になし
+
+【カスタマイズのポイント】
+- スライドのタイトル (例: <h2>会社概要</h2>) は適宜変更可能です。
+- 各情報項目 (会社名、設立日、事業内容、所在地など) のテキスト内容は、最新の正確な情報に更新してください。
+- 項目の追加や削除も、必要に応じて行ってください。
+- ロゴ画像を使用する場合は、パス (src属性) を実際のファイル場所に合わせてください。
+- 各情報項目に付与するクラス名 (例: "company-name", "established-date") は、対応するCSS (03_company_profile_slide.css) でスタイルが定義されている場合、変更するとCSS側も修正が必要です。
+
+【基本的なHTML構造の注意】
+- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
+- HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
+  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
+- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
+================================================================================
+-->
+
+<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+
+<!-- ここに03_company_profile_slide.htmlの実際のHTMLコードが入ります -->
+<!-- 例: -->
+<!--
+<h2 class="company-profile-title">会社概要</h2>
+<div class="company-details">
+    <div class="profile-item">
+        <span class="item-label">会社名:</span>
+        <span class="item-value company-name">株式会社〇〇 / XX Inc.</span>
+    </div>
+    <div class="profile-item">
+        <span class="item-label">設立:</span>
+        <span class="item-value established-date">YYYY年MM月DD日</span>
+    </div>
+    <div class="profile-item">
+        <span class="item-label">代表者:</span>
+        <span class="item-value representative-name">代表取締役 〇〇 〇〇</span>
+    </div>
+    <div class="profile-item">
+        <span class="item-label">所在地:</span>
+        <span class="item-value company-address">〒XXX-XXXX 東京都〇〇区〇〇 X-X-X</span>
+    </div>
+    <div class="profile-item">
+        <span class="item-label">事業内容:</span>
+        <span class="item-value business-description">
+            <ul>
+                <li>事業内容1</li>
+                <li>事業内容2</li>
+                <li>事業内容3</li>
+            </ul>
+        </span>
+    </div>
+    <div class="profile-item">
+        <span class="item-label">企業理念:</span>
+        <span class="item-value company-philosophy">「〇〇を通じて社会に貢献します」</span>
+    </div>
+    <div class="profile-item company-logo-area">
+        <img src="../../assets/images/common/logo_large.png" alt="会社ロゴ（大）" class="company-profile-logo">
+    </div>
+</div>
+-->
+
+<!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

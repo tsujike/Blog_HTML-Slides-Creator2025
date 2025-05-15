@@ -1,0 +1,77 @@
+<!--
+================================================================================
+パーツ名: 締め/お礼スライド コンテンツ (Thank You/Closing Slide Content)
+ファイル名: 13_thank_you_slide.html
+作成日: YYYY-MM-DD (実際の作成日を入れてください)
+更新日: YYYY-MM-DD (実際の更新日を入れてください)
+バージョン: 1.0
+
+【説明】
+プレゼンテーションの最後に、聴衆への感謝の意を伝え、質疑応答を促したり、
+連絡先情報を再掲したりするためのHTML構造を提供します。
+
+【使い方】
+1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
+2. 各プレゼンテーション資料のHTMLファイル内で、最後のスライドとして表示したい
+   <section class="slide slide-thank-you"> (または同等の締め用クラスを持つ要素) の
+   コンテンツエリアにペーストしてください。
+   例:
+   <section class="slide slide-thank-you">
+       <div class="slide-content"> <!-- この中にペースト -->
+           <!-- ここに締め/お礼スライドのコンテンツをペースト -->
+       </div>
+       <!-- (もしあれば) print-page-break-adjuster など -->
+   </section>
+
+【依存関係】
+- CSS:
+    - このパーツの基本的なスタイルは、対応するCSSファイル (13_thank_you_slide.css) に記述されています。
+    - 13_thank_you_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
+    - このパーツは、親要素に `.slide` 及び `.slide-thank-you` (または締め用スライドの類似クラス) が指定され、
+      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
+- JavaScript:
+    - 特になし
+
+【カスタマイズのポイント】
+- メインのメッセージ (例: <h2>ご清聴ありがとうございました</h2>, <h2>Thank You</h2>) は適宜変更可能です。
+- 質疑応答を促すメッセージ（「ご質問はございますか？」など）や、連絡先の再掲（メールアドレス、ウェブサイトなど）を含めることができます。
+- 会社ロゴや、プレゼンテーションのテーマに合ったイメージ画像を背景などに使用することも効果的です。
+- 各要素に付与するクラス名 (例: "thank-you-message", "contact-info-final") は、対応するCSS (13_thank_you_slide.css) でスタイルが定義されている場合、変更するとCSS側も修正が必要です。
+
+【基本的なHTML構造の注意】
+- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
+- HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
+  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
+- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
+================================================================================
+-->
+
+<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+
+<!-- ここに13_thank_you_slide.htmlの実際のHTMLコードが入ります -->
+<!-- 例: 感謝のメッセージと質疑応答、連絡先を掲載するシンプルな構成 -->
+<!--
+<div class="thank-you-content-wrapper">
+    <h2 class="thank-you-title">ご清聴ありがとうございました</h2>
+
+    <div class="thank-you-message">
+        <p>本日のプレゼンテーションは以上となります。<br>
+        貴重なお時間をいただき、誠にありがとうございました。</p>
+    </div>
+
+    <div class="q-and-a-prompt">
+        <p><strong>ご質問はございますでしょうか？</strong></p>
+    </div>
+
+    <div class="final-contact-info">
+        <hr class="separator">
+        <p><strong>お問い合わせ・ご相談はこちらまで</strong></p>
+        <p>株式会社〇〇</p>
+        <p>Email: info@example.com  |  Web: www.example.com</p>
+        <img src="../../assets/images/common/logo_footer.png" alt="会社ロゴ（フッター用）" class="footer-logo-final">
+    </div>
+</div>
+-->
+
+<!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

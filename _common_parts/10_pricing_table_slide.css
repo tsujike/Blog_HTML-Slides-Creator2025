@@ -1,0 +1,123 @@
+/* _common_parts/10_pricing_table_slide.css */
+/* スタイル名: 価格表スライド コンテンツ用スタイル */
+/* 対応HTML: 10_pricing_table_slide.html */
+
+/*
+  このCSSは、10_pricing_table_slide.html のHTML構造に対応する基本的なスタイルを提供します。
+  複数の料金プランを表形式で比較しやすく表示することを目的としています。
+*/
+
+/* スライド全体のタイトル (.pricing-slide-title) のスタイル例 */
+.pricing-slide-title {
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.2em;
+}
+
+/* 価格表テーブル全体 (.pricing-table) のスタイル例 */
+.pricing-table {
+    width: 100%;
+    max-width: 800px; /* テーブルが横に広がりすぎないように (適宜調整) */
+    margin: 0 auto 1.5em auto; /* 中央揃え、下に余白 */
+    border-collapse: collapse; /* 隣接するセルの線を重ねる */
+    border: 1px solid #ddd; /* テーブル全体の外枠 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 0.95em; /* テーブル内の文字を少し小さめに */
+}
+
+/* テーブルヘッダー (thead th) のスタイル例 */
+.pricing-table thead th {
+    background-color: #f8f8f8; /* ヘッダー行の背景色 */
+    /* color: var(--color-primary); */ /* ヘッダー文字色 */
+    padding: 0.8em 1em;
+    text-align: center; /* ヘッダーテキストを中央揃え */
+    font-weight: bold;
+    border-bottom: 2px solid #ddd; /* ヘッダー行の下に太めの線 */
+}
+.pricing-table thead th:first-child { /* 左上の空セルは背景なしなど */
+    background-color: transparent;
+    border-right: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+/* プラン名 (.plan-name) のスタイル例 */
+.plan-name {
+    font-size: 1.2em;
+}
+
+/* おすすめプランのバッジ (.recommend-badge) のスタイル例 */
+.recommend-badge {
+    display: inline-block;
+    background-color: #27ae60; /* おすすめの色 (緑系) */
+    color: white;
+    font-size: 0.7em;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+/* テーブルボディ (tbody td) のスタイル例 */
+.pricing-table tbody td {
+    padding: 0.8em 1em;
+    text-align: center; /* 基本的に中央揃え (項目ラベルは左揃えに上書き) */
+    border: 1px solid #eee; /* セルの境界線 */
+    line-height: 1.5;
+}
+
+/* 機能ラベル列 (.feature-label) のスタイル例 */
+.pricing-table .feature-label {
+    text-align: left; /* 左揃え */
+    font-weight: 500; /* やや太字 */
+    background-color: #fdfdfd; /* ラベル列の背景色 (任意) */
+}
+
+/* 価格表示行 (.price-row) のスタイル例 */
+.pricing-table .price-row td {
+    font-weight: bold;
+    font-size: 1.3em; /* 価格を少し大きめに */
+    /* color: var(--color-accent); */ /* 価格にアクセントカラー */
+    background-color: #fff9e6; /* 価格行の背景色 (任意) */
+}
+.pricing-table .price-value {
+    /* 個別の価格値のスタイルが必要ならここに */
+}
+
+/* チェックマークやハイフンなどの記号のスタイル (直接テキストで入れる場合) */
+.pricing-table tbody td { /* チェックマークなど */
+    /* color: #27ae60; */ /* ✔ の色 */
+}
+/* .pricing-table tbody td:contains('-') { color: #999; } */ /* ハイフンの色 (CSSでは難しい) */
+
+
+/* テーブルフッター (tfoot td) のスタイル例 */
+.pricing-table tfoot td {
+    background-color: #f0f0f0;
+    padding: 0.8em 1em;
+    text-align: left;
+    font-size: 0.85em;
+    /* color: #666; */
+    border-top: 1px solid #ddd;
+}
+.pricing-notes p {
+    margin-bottom: 0;
+}
+
+/* 価格表下の追加情報 (.additional-pricing-info) のスタイル例 */
+.additional-pricing-info {
+    text-align: center;
+    font-size: 0.9em;
+    /* color: #777; */
+    margin-top: 1em;
+}
+
+/*
+  注意:
+  - テーブルの見た目は、ボーダー、背景色、パディング、テキスト揃えなどで大きく変わります。
+  - プラン数や機能数に応じて、テーブルの列幅や行の高さを調整する必要があります。
+  - レスポンシブ対応（画面幅が狭い場合の表示）も考慮する場合は、
+    より複雑なCSSやJavaScriptが必要になることがあります。
+*/

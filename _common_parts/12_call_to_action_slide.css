@@ -1,0 +1,137 @@
+/* _common_parts/12_call_to_action_slide.css */
+/* スタイル名: CTA/行動喚起スライド コンテンツ用スタイル */
+/* 対応HTML: 12_call_to_action_slide.html */
+
+/*
+  このCSSは、12_call_to_action_slide.html のHTML構造に対応する基本的なスタイルを提供します。
+  聴衆に次の具体的な行動を促すメッセージや情報を分かりやすく提示することを目的としています。
+*/
+
+/* スライド全体のタイトル (.cta-slide-title) のスタイル例 */
+.cta-slide-title {
+    font-size: 2.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.0em;
+    /* color: var(--color-accent-wp); */ /* 行動を促すアクセントカラー */
+}
+
+/* CTAメッセージ (.cta-message) のスタイル例 */
+.cta-message {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 2em;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-message p {
+    margin-bottom: 0.5em;
+}
+
+/* 行動喚起アクションのコンテナ (.cta-actions-container) のスタイル例 */
+.cta-actions-container {
+    display: flex;
+    justify-content: space-around; /* アクションアイテムを均等に配置 */
+    align-items: stretch; /* アイテムの高さを揃える (背景色などがある場合) */
+    flex-wrap: wrap; /* 画面幅が足りない場合に折り返す */
+    gap: 30px; /* アイテム間の隙間 */
+    margin-bottom: 2.5em;
+}
+
+/* 各行動喚起アイテム (.cta-action-item) のスタイル例 */
+.cta-action-item {
+    flex: 1; /* 利用可能なスペースを分け合う */
+    min-width: 250px; /* 最小幅 */
+    padding: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #fdfdfd;
+    display: flex;
+    flex-direction: column; /* 中身を縦に並べる */
+    justify-content: space-between; /* 中身を上下に均等配置（ボタンが下に来やすい） */
+}
+
+.action-title { /* 各アクションのタイトル */
+    font-size: 1.4em;
+    font-weight: bold;
+    /* color: var(--color-primary-wp); */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.action-description { /* 各アクションの説明文 */
+    font-size: 1.0em;
+    line-height: 1.5;
+    /* color: #555; */
+    margin-bottom: 1.5em; /* ボタンとの間のスペース */
+    flex-grow: 1; /* 説明文エリアが伸びて高さを調整 */
+}
+
+.cta-button { /* CTAボタン共通のスタイル */
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: auto; /* ボタンをアイテムの下部に配置 */
+}
+
+.primary-cta-button { /* 主要なCTAボタン */
+    background-color: #007bff; /* プライマリカラー */
+    color: white;
+    border: 1px solid #007bff;
+}
+.primary-cta-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.secondary-cta-button { /* 副次的なCTAボタン */
+    background-color: #6c757d; /* セカンダリカラー */
+    color: white;
+    border: 1px solid #6c757d;
+}
+.secondary-cta-button:hover {
+    background-color: #545b62;
+    border-color: #545b62;
+    transform: translateY(-1px);
+}
+
+.qr-code { /* QRコード画像 */
+    display: block;
+    max-width: 120px; /* QRコードのサイズ */
+    margin: 1em auto 0 auto; /* 中央揃え、上に余白 */
+}
+
+/* 連絡先情報 (.contact-information) のスタイル例 */
+.contact-information {
+    text-align: center;
+    font-size: 0.95em;
+    /* color: #666; */
+    border-top: 1px solid #eee;
+    padding-top: 1.5em;
+    margin-top: 2em;
+}
+.contact-information h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+}
+.contact-information p {
+    margin-bottom: 0.2em;
+    line-height: 1.4;
+}
+
+/*
+  注意:
+  - CTAスライドは、聴衆が次に取りやすい行動を明確に示すことが重要です。
+  - ボタンのデザインや配置、色のコントラストなどを工夫して、クリックやアクセスを促しましょう。
+*/

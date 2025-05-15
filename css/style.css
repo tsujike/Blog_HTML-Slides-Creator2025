@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   1. CSS Variables (グローバルな変数定義)
+   ========================================================================== */
+:root {
+    /* --- Colors --- */
+    --color-primary: #0D2E4D; /* 例: メインカラー (濃い青) */
+    --color-secondary: #0077B6; /* 例: セカンダリカラー (明るい青) */
+    --color-accent: #E8B730; /* 例: アクセントカラー (黄色系) */
+    --color-text: #333333; /* 基本テキスト色 */
+    --color-heading: #111111; /* 見出し色 */
+    --color-background: #f4f4f8; /* ページ全体の背景色 */
+    --color-slide-background: #ffffff; /* スライドの背景色 */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-light-gray: #eeeeee;
+    --color-medium-gray: #cccccc;
+    --color-dark-gray: #555555;
+
+    /* --- Typography --- */
+    --font-family-sans-serif: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    --font-family-serif: "Georgia", "Times New Roman", "Hiragino Mincho ProN", serif;
+    --base-font-size: 16px; /* 基本のフォントサイズ (remの基準) */
+    --line-height-base: 1.6;
+
+    /* --- Layout & Spacing --- */
+    --slide-padding-vertical: 40px;
+    --slide-padding-horizontal: 50px;
+    --content-max-width: 960px; /* スライド内コンテンツの最大幅 */
+    --spacing-unit: 8px; /* 基本のスペーシングユニット */
+}
+
+/* ==========================================================================
+   2. Reset & Base Styles (基本的なリセットとデフォルトスタイル)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--base-font-size); /* 1rem = var(--base-font-size) */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-sans-serif);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    padding: calc(var(--spacing-unit) * 3); /* body全体に少しパディング */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.presentation-content { /* プレゼンテーション全体を囲むコンテナ */
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+    line-height: 1.3;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    font-weight: bold;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+p { margin-bottom: calc(var(--spacing-unit) * 2); }
+
+/* ==========================================================================
+   3. Import Common Parts CSS (共通パーツのCSSをインポート)
+   ========================================================================== */
+/* パスは style.css から見た _common_parts ディレクトリ内の各CSSファイルを指します */
+@import url("../_common_parts/00_slide_template.css"); /* (もしあれば) */
+@import url("../_common_parts/01_title_slide.css");
+@import url("../_common_parts/02_agenda_slide.css");
+@import url("../_common_parts/03_company_profile_slide.css");
+@import url("../_common_parts/04_mission_vision_slide.css");
+@import url("../_common_parts/05_problem_statement_slide.css");
+@import url("../_common_parts/06_solution_overview_slide.css");
+@import url("../_common_parts/07_product_detail_slide.css");
+@import url("../_common_parts/08_case_study_slide.css");
+@import url("../_common_parts/09_team_introduction_slide.css");
+@import url("../_common_parts/10_pricing_table_slide.css");
+@import url("../_common_parts/11_comparison_table_slide.css");
+@import url("../_common_parts/12_call_to_action_slide.css");
+@import url("../_common_parts/13_thank_you_slide.css");
+@import url("../_common_parts/14_section_divider_slide.css");
+@import url("../_common_parts/15_image_full_bleed_slide.css");
+/* ... 他の共通パーツCSSがあれば追加 ... */
+
+
+/* ==========================================================================
+   4. Slide Structure & Layout (スライドの基本的な構造とレイアウト)
+   ========================================================================== */
+.slide {
+    background-color: var(--color-slide-background);
+    border: 1px solid var(--color-medium-gray);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 0 auto calc(var(--spacing-unit) * 4) auto; /* スライドを中央揃え、下にマージン */
+    padding: var(--slide-padding-vertical) var(--slide-padding-horizontal);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--content-max-width); /* A4横幅に近い値や読みやすい幅に */
+    min-height: 60vh; /* 画面表示時のスライドの最小高さ (適宜調整) */
+    position: relative; /* 子要素の絶対配置の基準など */
+    display: flex; /* スライド内コンテンツの配置のため */
+    flex-direction: column;
+}
+
+.slide-content { /* スライド内のコンテンツを囲むラッパー (必要に応じて) */
+    flex-grow: 1; /* 利用可能なスペースを埋める */
+    /* 必要に応じてパディングやマージンを設定 */
+}
+
+/* ==========================================================================
+   5. Specific Slide Type Styles (特定の種類のスライドの追加スタイル)
+      (多くのスタイルは各共通パーツCSSで定義されるが、ここで共通の調整も可能)
+   ========================================================================== */
+.slide-cover {
+    /* text-align: center; */
+    /* justify-content: center; */
+}
+
+.slide-full-image {
+    padding: 0 !important; /* 全面画像の場合はパディングをなくすことが多い */
+    overflow: hidden; /* はみ出しを隠す */
+}
+
+/* ==========================================================================
+   6. Utility Classes (便利なユーティリティクラス - 任意)
+   ========================================================================== */
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.font-bold { font-weight: bold !important; }
+.mt-1 { margin-top: var(--spacing-unit) !important; }
+.mb-1 { margin-bottom: var(--spacing-unit) !important; }
+/* ...など */
+
+/* ==========================================================================
+   7. Screen Only Elements (画面表示専用要素のスタイル)
+   ========================================================================== */
+.screen-only {
+    /* 画面では表示されるが、print.css で display:none にする要素 */
+}

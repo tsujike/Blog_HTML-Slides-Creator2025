@@ -1,0 +1,84 @@
+<!--
+================================================================================
+パーツ名: CTA/行動喚起スライド コンテンツ (Call to Action Slide Content)
+ファイル名: 12_call_to_action_slide.html
+作成日: YYYY-MM-DD (実際の作成日を入れてください)
+更新日: YYYY-MM-DD (実際の更新日を入れてください)
+バージョン: 1.0
+
+【説明】
+プレゼンテーションの最後に、聴衆に具体的な次の行動（問い合わせ、デモ依頼、
+資料請求、ウェブサイト訪問など）を促すためのHTML構造を提供します。
+
+【使い方】
+1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
+2. 各プレゼンテーション資料のHTMLファイル内で、行動喚起を行いたい
+   <section class="slide slide-cta"> (または同等のCTA用クラスを持つ要素) の
+   コンテンツエリアにペーストしてください。通常はプレゼンテーションの終盤に配置します。
+   例:
+   <section class="slide slide-cta">
+       <div class="slide-content"> <!-- この中にペースト -->
+           <!-- ここにCTAスライドのコンテンツをペースト -->
+       </div>
+       <!-- (もしあれば) print-page-break-adjuster など -->
+   </section>
+
+【依存関係】
+- CSS:
+    - このパーツの基本的なスタイルは、対応するCSSファイル (12_call_to_action_slide.css) に記述されています。
+    - 12_call_to_action_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
+    - このパーツは、親要素に `.slide` 及び `.slide-cta` (またはCTA用スライドの類似クラス) が指定され、
+      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
+- JavaScript:
+    - 特になし (もしフォーム送信などのインタラクションがあれば、ここに記述)
+
+【カスタマイズのポイント】
+- スライドのタイトル (例: <h2>次のステップへ</h2>, <h2>お気軽にお問い合わせください</h2>) は、促したい行動に合わせて適宜変更可能です。
+- 具体的にどのような行動を促すのか（例:「詳細はこちらのQRコードから」「無料デモのお申し込みはこちら」）を明確に記述します。
+- 問い合わせ先の情報（電話番号、メールアドレス、ウェブサイトURL、QRコードなど）を分かりやすく掲載します。
+- ボタンや目立つデザイン要素を使って、行動を促す部分を強調することが効果的です。
+- 各要素に付与するクラス名 (例: "cta-button", "contact-info") は、対応するCSS (12_call_to_action_slide.css) でスタイルが定義されている場合、変更するとCSS側も修正が必要です。
+
+【基本的なHTML構造の注意】
+- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
+- HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
+  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
+- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
+================================================================================
+-->
+
+<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+
+<!-- ここに12_call_to_action_slide.htmlの実際のHTMLコードが入ります -->
+<!-- 例: 問い合わせとウェブサイトへの誘導を促すCTA -->
+<!--
+<h2 class="cta-slide-title">さあ、始めましょう！</h2>
+
+<div class="cta-message">
+    <p>私たちのソリューションにご興味をお持ちいただけましたでしょうか？<br>
+    お客様のビジネスを成功に導くため、ぜひ一度詳しいお話をさせてください。</p>
+</div>
+
+<div class="cta-actions-container">
+    <div class="cta-action-item">
+        <h3 class="action-title">個別相談・デモのご予約</h3>
+        <p class="action-description">お客様の具体的な課題やご要望に合わせて、最適な活用方法をご提案します。</p>
+        <a href="[予約ページのURL]" class="cta-button primary-cta-button">無料相談を予約する</a>
+    </div>
+    <div class="cta-action-item">
+        <h3 class="action-title">資料ダウンロード・詳細情報</h3>
+        <p class="action-description">本日の資料や、より詳しい製品情報をウェブサイトでご覧いただけます。</p>
+        <a href="[資料ダウンロードページやウェブサイトのURL]" class="cta-button secondary-cta-button">ウェブサイトを見る</a>
+        <img src="../../assets/images/common/qr_code_website.png" alt="ウェブサイトQRコード" class="qr-code">
+    </div>
+</div>
+
+<div class="contact-information">
+    <h4>お問い合わせ先</h4>
+    <p>株式会社〇〇</p>
+    <p>電話: 03-XXXX-XXXX / Email: info@example.com</p>
+</div>
+-->
+
+<!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

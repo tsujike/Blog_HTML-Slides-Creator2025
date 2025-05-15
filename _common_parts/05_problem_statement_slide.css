@@ -1,0 +1,79 @@
+/* _common_parts/05_problem_statement_slide.css */
+/* スタイル名: 課題提起スライド コンテンツ用スタイル */
+/* 対応HTML: 05_problem_statement_slide.html */
+
+/*
+  このCSSは、05_problem_statement_slide.html のHTML構造に対応する基本的なスタイルを提供します。
+  提示する課題や問題点をリスト形式などで分かりやすく表示することを目的としています。
+*/
+
+/* スライド全体のタイトル (.problem-slide-title) のスタイル例 */
+.problem-slide-title {
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center; /* または左揃え */
+    margin-top: 0;
+    margin-bottom: 1.0em;
+    /* color: #c0392b; */ /* やや警告的な色を使う場合 (任意) */
+}
+
+/* 課題の導入文や背景説明 (.problem-context) のスタイル例 */
+.problem-context {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    /* text-align: center; */ /* 中央揃えにする場合 */
+    /* color: #555; */
+}
+
+/* 課題リスト全体 (.problem-list) のスタイル例 */
+.problem-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1.5em;
+}
+
+/* 各課題項目 (.problem-item) のスタイル例 */
+.problem-item {
+    background-color: #f9f9f9; /* 各課題を背景色で区切る (任意) */
+    border: 1px solid #eee;
+    border-left: 5px solid #e74c3c; /* 左側に警告色の太線 (任意) */
+    padding: 1em 1.5em;
+    margin-bottom: 1em;
+    border-radius: 4px; /* 角を少し丸める */
+}
+
+/* 各課題項目のタイトル (.problem-item-title) のスタイル例 */
+.problem-item-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    /* color: #d35400; */ /* やや強い注意を引く色 */
+    margin-top: 0;
+    margin-bottom: 0.3em;
+}
+
+/* 各課題項目の説明文 (.problem-item-description) のスタイル例 */
+.problem-item-description {
+    font-size: 1.0em;
+    line-height: 1.6;
+    /* color: #444; */
+    margin-bottom: 0; /* problem-item の padding で余白を調整 */
+}
+
+/* 課題の影響や結論を述べる部分 (.problem-impact) のスタイル例 */
+.problem-impact {
+    font-size: 1.1em;
+    line-height: 1.6;
+    /* color: #7f8c8d; */ /* やや抑えた色で */
+    padding: 1em;
+    border-top: 1px dashed #ccc; /* 上に区切り線 */
+    margin-top: 2em;
+    text-align: center;
+}
+
+/*
+  注意:
+  - 課題を提示するスライドなので、視覚的に「問題点」であることが伝わるような
+    配色（暖色系のアクセントカラーなど）やアイコンの使用も効果的です。
+  - 各課題の重要度に応じて、スタイルの強弱をつけることも検討できます。
+*/

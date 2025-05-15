@@ -1,0 +1,90 @@
+/* _common_parts/06_solution_overview_slide.css */
+/* スタイル名: ソリューション概要スライド コンテンツ用スタイル */
+/* 対応HTML: 06_solution_overview_slide.html */
+
+/*
+  このCSSは、06_solution_overview_slide.html のHTML構造に対応する基本的なスタイルを提供します。
+  提案する解決策の全体像や主要な価値を視覚的に分かりやすく提示することを目的としています。
+*/
+
+/* スライド全体のタイトル (.solution-slide-title) のスタイル例 */
+.solution-slide-title {
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.0em;
+    /* color: #27ae60; */ /* 解決策を示すポジティブな色 (任意) */
+}
+
+/* ソリューションのコンセプト説明エリア (.solution-concept) のスタイル例 */
+.solution-concept {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.solution-diagram { /* コンセプト図などの画像 */
+    max-width: 70%; /* スライド幅に対する画像の最大幅 */
+    height: auto;
+    margin: 0 auto 1em auto; /* 中央揃え、下に余白 */
+    border: 1px solid #eee; /* 画像に薄い枠線 (任意) */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 軽い影 (任意) */
+}
+
+.solution-summary { /* コンセプトの要約文 */
+    font-size: 1.1em;
+    line-height: 1.6;
+    /* color: #555; */
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 提供価値ポイントのコンテナ (.value-points-container) のスタイル例 */
+.value-points-container {
+    display: flex; /* Flexboxで横並びにする */
+    justify-content: space-around; /* 各ポイントを均等に配置 */
+    align-items: flex-start; /* 上揃え */
+    flex-wrap: wrap; /* 画面幅が足りない場合に折り返す */
+    gap: 20px; /* ポイント間の隙間 */
+    margin-top: 1.5em;
+}
+
+/* 各提供価値ポイント (.value-point) のスタイル例 */
+.value-point {
+    flex-basis: calc(33.333% - 20px); /* 3カラムレイアウトの目安 (gapを考慮) */
+    /* もし2カラムなら flex-basis: calc(50% - 10px); など */
+    min-width: 200px; /* 最小幅 */
+    background-color: #f9f9f9; /* 背景色 (任意) */
+    padding: 1.5em;
+    border-radius: 5px;
+    text-align: center; /* テキストを中央揃え */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.value-icon { /* 各価値ポイントのアイコン画像 */
+    max-height: 50px; /* アイコンの高さ */
+    width: auto;
+    margin-bottom: 0.8em;
+}
+
+.value-point-title { /* 各価値ポイントのタイトル */
+    font-size: 1.3em;
+    font-weight: bold;
+    /* color: #2c3e50; */
+    margin-top: 0;
+    margin-bottom: 0.4em;
+}
+
+.value-point-description { /* 各価値ポイントの説明文 */
+    font-size: 1.0em;
+    line-height: 1.5;
+    /* color: #666; */
+    margin-bottom: 0;
+}
+
+/*
+  注意:
+  - アイコンや図を効果的に使うことで、ソリューションの魅力が伝わりやすくなります。
+  - 提供価値のポイント数は可変なので、FlexboxやGridのレイアウト調整が重要です。
+*/

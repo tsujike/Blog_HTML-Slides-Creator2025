@@ -1,0 +1,109 @@
+/* _common_parts/15_image_full_bleed_slide.css */
+/* スタイル名: 全面画像スライド コンテンツ用スタイル */
+/* 対応HTML: 15_image_full_bleed_slide.html */
+
+/*
+  このCSSは、15_image_full_bleed_slide.html のHTML構造に対応する基本的なスタイルを提供します。
+  スライド全体に画像を表示し、その上にテキストを重ねて視覚的なインパクトを与えることを目的としています。
+  HTML側で、<section class="slide slide-full-image"> の背景としてCSSで画像を指定するか、
+  あるいは <section> 内に <img class="full-bleed-background-image"> を配置するかの
+  2つの主要なアプローチを想定しています。
+*/
+
+
+/* --- パターン1: <section> の背景としてCSSで画像を指定する場合のスタイル --- */
+
+/* 親の .slide-full-image に直接背景画像などを指定する例 (これはメインのstyle.cssか、
+   このファイルで .slide.slide-full-image として定義することも可能) */
+/*
+.slide.slide-full-image {
+    background-image: url('../../assets/images/slides/default_full_bleed_image.jpg');
+    background-size: cover;    // 画像が要素全体を覆うように拡大縮小
+    background-position: center center; // 画像を中央に配置
+    background-repeat: no-repeat;
+    padding: 0 !important; // 全面表示のため、通常スライドのパディングを上書き
+    display: flex; // テキストコンテンツを配置しやすくするため
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; // テキストを重ねる場合の基準
+}
+*/
+
+/* 画像の上に重ねるテキストコンテナ (.full-image-text-container) のスタイル例 */
+.full-image-text-container {
+    position: relative; /* z-index を使う場合など */
+    z-index: 1;
+    padding: 2em;
+    border-radius: 5px; /* テキストエリアの角を丸める (任意) */
+    /* 背景色を少し暗くしてテキストの可読性を上げる例 */
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    /* color: white; */ /* テキストの色を白に (背景画像に合わせて) */
+    max-width: 70%; /* テキストエリアが広がりすぎないように */
+}
+
+.full-image-headline { /* 全面画像のヘッドラインテキスト */
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    /* text-shadow: 1px 1px 3px rgba(0,0,0,0.7); */ /* 文字に影をつけて読みやすく */
+}
+
+.full-image-subtext { /* 全面画像のサブテキスト */
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 0;
+    /* text-shadow: 1px 1px 2px rgba(0,0,0,0.6); */
+}
+
+
+/* --- パターン2: <img> タグで画像を配置し、テキストを絶対配置で重ねる場合のスタイル --- */
+
+/* 背景画像となるimg要素 (.full-bleed-background-image) のスタイル例 */
+/* (このスタイルは .slide.slide-full-image の position: relative とセットで使います) */
+/*
+.full-bleed-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // アスペクト比を保ちつつ、要素を完全に覆う
+    z-index: 0; // テキストより下に配置
+}
+*/
+
+/* 画像の上に重ねるテキストのコンテナ (.full-image-overlay-text) のスタイル例 */
+/*
+.full-image-overlay-text {
+    position: relative; // または absolute で親に対して配置
+    z-index: 1; // 画像より手前に
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2em; // 必要に応じて
+    // color: white;
+    // text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.overlay-main-message {
+    font-size: 2.5em;
+    font-weight: bold;
+    // その他のスタイル
+}
+*/
+
+/*
+  注意:
+  - 全面画像スライドは、使用する画像の品質とメッセージ性が非常に重要です。
+  - テキストを重ねる場合は、画像の明るさや色味を考慮し、テキストが読みやすいように
+    コントラストやシャドウ、背景のオーバーレイなどを工夫してください。
+  - CSSでの背景画像指定と、HTMLのimgタグでの配置、どちらの方法を選ぶかによって
+    CSSの書き方が変わります。プロジェクトの運用に合わせて選択してください。
+*/

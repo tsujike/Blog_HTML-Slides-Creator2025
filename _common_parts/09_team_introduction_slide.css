@@ -1,0 +1,136 @@
+/* _common_parts/09_team_introduction_slide.css */
+/* スタイル名: チーム紹介/自己紹介スライド コンテンツ用スタイル */
+/* 対応HTML: 09_team_introduction_slide.html */
+
+/*
+  このCSSは、09_team_introduction_slide.html のHTML構造に対応する基本的なスタイルを提供します。
+  チームメンバーや発表者の情報を、写真と共に分かりやすく表示することを目的としています。
+*/
+
+/* スライド全体のタイトル (.team-intro-slide-title / .self-intro-slide-title) のスタイル例 */
+.team-intro-slide-title,
+.self-intro-slide-title {
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center; /* または左揃え */
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+/* チームメンバー紹介コンテナ (.team-members-container) のスタイル例 */
+.team-members-container {
+    display: flex; /* Flexboxでメンバーを横並びにする */
+    justify-content: space-around; /* メンバー間のスペースを均等に */
+    align-items: flex-start; /* 上揃え */
+    flex-wrap: wrap; /* 画面幅が足りない場合に折り返す */
+    gap: 30px; /* メンバー間の隙間 */
+}
+
+/* 各メンバーのプロフィール (.member-profile) のスタイル例 */
+.member-profile {
+    flex-basis: calc(33.333% - 20px); /* 3カラムレイアウトの目安 (gapを考慮) */
+    /* 2カラムなら flex-basis: calc(50% - 15px); など */
+    min-width: 220px; /* 最小幅 */
+    text-align: center; /* プロフィール内容を中央揃え */
+    background-color: #fdfdfd;
+    padding: 1.5em;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.member-photo { /* メンバーの顔写真 */
+    width: 120px; /* 写真のサイズ (正方形を想定) */
+    height: 120px;
+    border-radius: 50%; /* 円形にする */
+    object-fit: cover; /* アスペクト比を保ちつつコンテナを埋める */
+    margin: 0 auto 1em auto; /* 中央揃え、下に余白 */
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.member-name { /* メンバーの名前 */
+    font-size: 1.3em;
+    font-weight: bold;
+    /* color: var(--color-primary); */
+    margin-top: 0;
+    margin-bottom: 0.2em;
+}
+
+.member-title { /* メンバーの役職/肩書き */
+    font-size: 1.0em;
+    /* color: #555; */
+    margin-bottom: 0.8em;
+    font-style: italic;
+}
+
+.member-bio { /* メンバーの簡単な紹介文 */
+    font-size: 0.9em;
+    line-height: 1.5;
+    /* color: #666; */
+    margin-bottom: 0.8em;
+    text-align: left; /* 紹介文は左揃えの方が見やすいことも */
+}
+
+.member-expertise { /* メンバーの専門分野など */
+    font-size: 0.85em;
+    /* color: #777; */
+    text-align: left;
+    margin-bottom: 0;
+}
+.member-expertise::before { /* 「専門分野:」のようなラベル風 */
+    content: "専門: ";
+    font-weight: bold;
+}
+
+
+/* 自己紹介用コンテナ (.self-profile-container) のスタイル例 */
+.self-profile-container {
+    display: flex;
+    align-items: center; /* 写真と詳細情報を垂直中央揃え */
+    gap: 30px;
+    background-color: #f9f9f9;
+    padding: 2em;
+    border-radius: 8px;
+}
+
+.my-photo { /* 自己紹介用の写真 */
+    width: 150px;
+    height: 150px;
+    border-radius: 8px; /* 少し角丸の四角形 */
+    object-fit: cover;
+    flex-shrink: 0; /* 写真が縮まないように */
+}
+
+.my-details { /* 自己紹介の詳細情報エリア */
+    flex-grow: 1;
+}
+
+.my-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.1em;
+}
+
+.my-title-affiliation {
+    font-size: 1.1em;
+    /* color: #444; */
+    margin-bottom: 1em;
+}
+
+.my-introduction {
+    font-size: 1.0em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.my-contact {
+    font-size: 0.9em;
+    /* color: #007bff; */ /* 連絡先はリンク色など */
+}
+
+/*
+  注意:
+  - 顔写真は、親近感や信頼性を高めるのに役立ちます。
+  - 情報量が多すぎると読みにくくなるため、各メンバーの紹介は簡潔にまとめることが重要です。
+*/
