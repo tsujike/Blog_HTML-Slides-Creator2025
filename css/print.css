@@ -4,7 +4,7 @@
     /* Print variable overrides (元々あったもの) */
     --color-text-wp: var(--color-black-wp); /* style.cssにある */
     --color-heading-wp: var(--color-black-wp);
-    --logo-image-path: url('../assets/images/common/logo/logo-small.png'); 
+    --logo-image-path: url('../_common_assets/images/common/logo/logo-small.png'); 
 
     /* もし style.css で定義されている変数をここで上書きまたは定義するなら */
     --color-black-wp: #000000; /* 例: 直接定義 */

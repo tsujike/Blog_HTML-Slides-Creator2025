@@ -10,15 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slides.forEach((slide, index) => {
             const pageNum = index + 1;
 
-            // --- ヘッダー要素を作成 (変更なし) ---
-            const header = document.createElement('div');
-            header.classList.add('print-header');
-            header.innerHTML = `
-                <div class="header-right">
-                    <img src="assets/images/slides/logo-small.png" alt="Logo" class="print-logo">
-                </div>
-            `;
-            slide.prepend(header);
+            // --- ヘッダー要素はstyle_print.cssに直書きしてます。（右上にロゴを設置するだけなので）---
 
             // --- フッター要素を作成 (HTML構造を少し変更) ---
             const footer = document.createElement('div');
