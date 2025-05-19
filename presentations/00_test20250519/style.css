@@ -1,0 +1,39 @@
+/* style_print.css */
+
+:root {
+    /* Print variable overrides (元々あったもの) */
+    --logo-image-path: url('logo-small.png'); 
+
+    /* もし style.css で定義されている変数をここで上書きまたは定義するなら */
+    --color-white-wp: #ffffff; /* 例: 直接定義 */
+    --print-footer-height: 0.8cm; /* 例: 直接定義 */
+    --print-v-margin: 0.6cm; /* 例: 直接定義 */
+}
+
+@page {
+    size: A4 landscape; /* A4横向き */
+    margin: 1cm; /* ★style_wp.css と同じ値にしてみる★ */
+
+    @top-left { content: ""; }
+    @top-center { content: ""; }
+    @top-right { content: var(--logo-image-path);
+        margin-right: 1cm; /* 右端からの余白 */
+            }
+    @bottom-left { content: ""; }
+    @bottom-center { content: ""; }
+    @bottom-right { content: ""; }
+}
+
+
+.company-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* レスポンシブな2カラム */
+    gap: 30px; /* カラム間の隙間 */
+    align-items: flex-start; /* 上揃え */
+    margin-bottom: 2rem;
+        border: 5px solid red !important; /* ← テスト用に追加 */
+    background-color: yellow !important; /* ← テスト用に追加 */
+}
+
+
+

@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             footer.classList.add('print-footer');
             // ★ 左側の空要素、中央テキスト、右ページ番号の3つのdivを含むように変更
             footer.innerHTML = `
-                <div class="footer-left"></div>
                 <div class="footer-center">
                     <span class="footer-text">TG GLOBAL CO.LTD.</span>
                 </div>

@@ -1,0 +1,151 @@
+
+/* ================================================== */
+/* ================= Print Styles =================== */
+/* ================================================== */
+@media print {
+
+    /* --- Print Defaults --- */
+    body {
+        font-size: 10pt !important;
+        color: var(--color-black-wp) !important;
+        background-color: var(--color-white-wp) !important;
+         -webkit-print-color-adjust: exact !important;
+         print-color-adjust: exact !important;
+    }
+    :root { /* Print variable overrides */
+        --color-text-wp: var(--color-black-wp);
+        --color-heading-wp: var(--color-black-wp);
+        --color-primary-wp: #0056b3;
+        --color-secondary-wp: #333;
+        --color-highlight-bg-wp: #ffffcc;
+    }
+    a { color: inherit !important; text-decoration: none !important; }
+    h1 { font-size: 18pt !important; margin-bottom: 0.8em !important; }
+    h2 { font-size: 15pt !important; margin-bottom: 0.6em !important; }
+    h3 { font-size: 12pt !important; margin-bottom: 0.5em !important; }
+    p, ul, ol { margin-bottom: 0.5em !important; }
+    li { margin-bottom: 0.3em !important; }
+    img.slide-image { page-break-inside: avoid; max-width: 60% !important; margin: 1em auto !important; }
+    .highlight { background: linear-gradient(transparent 60%, var(--color-highlight-bg-wp) 60%) !important; }
+    .cta-button-wp { display: none !important; }
+
+    /* --- Print Header/Footer Containers --- */
+    .print-header,
+    .print-footer {
+        display: flex !important;
+        align-items: center;
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 100 !important;
+    }
+    .print-header {
+        top: 0 !important;
+        height: var(--print-header-height) !important;
+        justify-content: flex-end !important;
+        padding: 0 0.5cm !important;
+        background-color: transparent !important;
+        border: none !important;
+    }
+    .print-footer {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: var(--print-footer-height);
+        justify-content: space-between ;
+        background-color: #333;
+        color: var(--color-white-wp);
+        font-size: 10pt;
+    }
+
+    /* --- Print Header/Footer Content --- */
+    .print-header .print-logo {
+        height: 1.5cm !important;
+        width: auto !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+    .footer-left { flex-basis: 33% !important; }
+    .footer-center { flex-grow: 1 !important; text-align: center !important; }
+    .footer-right { flex-basis: 33% !important; text-align: right !important; }
+    .footer-center .footer-text,
+    .footer-right .print-page-number-footer {
+        font-size: 7pt !important;
+        font-weight: normal !important;
+        color: var(--color-white-wp) !important;
+    }
+
+    /* --- Print Slide Adjustments --- */
+    .presentation-container { margin: 0 !important; padding: 0 !important; width: auto !important; }
+
+    .slide {
+        page-break-before: always !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        min-height: 0 !important;
+        height: auto !important;
+        width: 100% !important;
+        padding-top: calc(var(--print-header-height) + var(--print-v-margin)) !important;
+        padding-bottom: calc(var(--print-footer-height) + var(--print-v-margin)) !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        display: block !important;
+        text-align: left !important;
+        /* overflow: hidden !important; */ /* ★★★ 念のためコメントアウトして確認 ★★★ */
+        overflow: visible !important; /* またはこちらを試す */
+        position: relative !important;
+        background: var(--color-white-wp) !important;
+        color: var(--color-black-wp) !important;
+    }
+    .slide:first-child {
+        page-break-before: avoid !important;
+    }
+
+    /* Print Page Break Adjuster */
+    .print-page-break-adjuster {
+        display: block !important; /* 印刷時のみ表示 */
+        height: 0; /* 通常は高さを0に */
+        visibility: hidden; /* 見えないように */
+    }
+
+    /* Cover slide specific print styles */
+    .slide-cover .slide-content { /* IDセレクタからクラスセレクタに変更 */
+        background-color: transparent !important;
+        padding: 0 !important;
+        text-align: center !important; /* 中央揃えを維持 */
+    }
+    .slide-cover .cover-title {
+        font-size: 22pt !important;
+        color: var(--color-black-wp) !important;
+        text-shadow: none !important;
+        margin: 0 0 1em 0 !important;
+        line-height: 1.3 !important;
+    }
+    .slide-cover .cover-subtitle,
+    .slide-cover .presenter-company,
+    .slide-cover .date {
+        font-size: 12pt !important;
+        color: #333 !important;
+        opacity: 1 !important;
+        margin-bottom: 0.5em !important;
+    }
+
+    /* Hide elements not needed for print */
+    .cover-logo { /* 表紙のロゴは印刷ヘッダーがあるので非表示 */
+        display: none !important;
+    }
+
+    /* Adjust other element sizes for print */
+    .strength-item img {
+        max-height: 50px !important;
+    }
+    ol.partnership-steps li::before {
+        background-color: var(--color-primary-wp) !important;
+        color: var(--color-white-wp) !important;
+    }
+
+
+} /* End of @media print */

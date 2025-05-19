@@ -1,0 +1,24 @@
+/* ================================================== */
+/* ================= Print Styles =================== */
+/* ================================================== */
+@media print {
+
+    /* --- Print Header/Footer Containers --- */
+    .print-footer {
+        display: flex;
+        height: var(--print-footer-height);
+        background-color: #845;
+        color: var(--color-white-wp);
+    }
+
+    /* --- Print Slide Adjustments --- */
+    .slide {
+        padding-bottom: calc(var(--print-footer-height) + var(--print-v-margin));
+    }
+
+    /* --- footerのBar位置を調整する部品 --- */
+    #slide-cover .print-page-break-adjuster { margin-top: 200mm; }
+    #slide-about-tg .print-page-break-adjuster { margin-top: 00mm ; }
+
+
+}
