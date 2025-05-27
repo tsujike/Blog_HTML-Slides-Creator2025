@@ -16,7 +16,7 @@
 
   /* スペーシング */
   --slide-padding-v-wp: 4rem;
-  --slide-padding-h-wp: 4rem;
+  --slide-padding-h-wp: 2rem;
 
   /* シャドウ */
   --shadow-sm-wp: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -104,21 +104,30 @@ body {
   background-position: center;
   position: relative;
   color: #ffffff;
+  text-align: center;
 }
 
 .slide-cover-wp .cover-logo-wp {
-  max-width: 180px;
-  margin-bottom: 3rem;
+  max-width: 150px;
+  margin-bottom: 0.5rem;
   filter: brightness(0) invert(1) !important; /* 黒いロゴを白く変換 */
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.cover-logo-container-wp {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .slide-cover-wp .slide-cover-title-wp {
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.3;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .slide-cover-wp .slide-cover-subtitle-wp {
@@ -126,12 +135,7 @@ body {
   line-height: 1.6;
   opacity: 0.95;
   max-width: 800px;
-  margin: 0 auto 3rem;
-}
-
-/* 発表者情報全体のスタイル */
-.slide-cover-wp .presenter-info-wp {
-  margin-top: 2rem; /* サブタイトルからのマージン */
+  margin: 0 auto 2rem;
 }
 
 /* 会社名と日付のスタイル */

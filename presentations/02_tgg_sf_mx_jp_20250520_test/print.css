@@ -1,5 +1,22 @@
 
+/* ================================================== */
+/* ========== Common Print Layout Styles ============ */
+/* ================================================== */
 
+/* 印刷時の共通レイアウト設定 */
+@media print {
+    .slide {
+        padding: 0 !important;
+        justify-content: flex-start !important;
+        min-height: 0 !important;
+    }
+    .header-right {
+        margin-top: 1.5rem !important;
+    }
+    .print-footer {
+        color: #587897 !important;
+    }
+}
 
 /* ================================================== */
 /* ========== Slide 2: Agenda Styles (WP) =========== */
@@ -8,7 +25,7 @@
 /* 印刷時のアジェンダスタイル調整 (任意) */
 @media print {
     .slide-agenda-wp .common-title {
-        font-size: 16pt !important; /* 印刷時のタイトルサイズ */
+        font-size: 2rem !important; /* 印刷時のタイトルサイズ */
         margin-bottom: 1em !important;
     }
     .agenda-item-wp {
@@ -27,16 +44,17 @@
 /* 印刷時の会社概要スタイル調整 (任意) */
 @media print {
     .slide-company-profile-wp .common-title {
-        font-size: 16pt !important;
+        font-size: 2rem !important;
         margin-bottom: 1em !important;
     }
     .company-profile-grid-wp {
-        gap: 20px !important; /* 印刷時は少し詰める */
+        gap: 3rem !important;
         margin-bottom: 1.5em !important;
     }
     .profile-item-wp {
         font-size: 9pt !important; /* 印刷時は文字を小さく */
         margin-bottom: 0.6em !important;
+        padding: 1rem !important;
     }
     .profile-item-wp .item-label-wp {
         min-width: 80px !important;
@@ -60,11 +78,11 @@
 /* 印刷時の会社概要スタイル調整 (任意) */
 @media print {
     .slide-company-profile-wp .common-title {
-        font-size: 16pt !important;
+        font-size: 2rem !important;
         margin-bottom: 1.2em !important;
     }
     .company-profile-grid-wp {
-        gap: 15px !important;
+        gap: 3rem !important;
         margin-bottom: 1.2em !important;
     }
     .profile-item-wp {
@@ -98,7 +116,7 @@
 /* 印刷時の強みスライドスタイル調整 (任意) */
 @media print {
     .slide-strengths-wp .common-title {
-        font-size: 16pt !important;
+        font-size: 2rem !important;
         margin-bottom: 1.5em !important;
     }
     .strengths-grid-wp {
@@ -128,7 +146,7 @@
 /* 印刷時の価格表スライドスタイル調整 (任意) */
 @media print {
     .slide-pricelist-wp .common-title {
-        font-size: 16pt !important;
+        font-size: 2rem !important;
         margin-bottom: 1em !important;
     }
     .pricelist-intro-wp {
@@ -172,7 +190,7 @@
 /* 印刷時の課題への挑戦スライドスタイル調整 (任意) */
 @media print {
     .slide-challenge-wp .common-title {
-        font-size: 16pt !important;
+        font-size: 2rem !important;
         margin-bottom: 1.2em !important;
     }
     .slide-challenge-wp p {
@@ -193,7 +211,7 @@
 /* 印刷時のパートナーシップスライドスタイル調整 (任意) */
 @media print {
     .slide-partnership-model-wp .common-title {
-        font-size: 16pt !important;
+        font-size: 2rem !important;
         margin-bottom: 1.2em !important;
     }
     .partnership-sections-wp {
@@ -237,7 +255,7 @@
 /* 印刷時のCTAスライドスタイル調整 (任意) */
 @media print {
     .slide-cta-wp .common-title {
-        font-size: 16pt !important;
+        font-size: 2rem !important;
         margin-bottom: 1.2em !important;
     }
     .slide-cta-wp p {
