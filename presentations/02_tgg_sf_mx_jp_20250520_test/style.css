@@ -1,0 +1,762 @@
+/* モダンなデザインのための変数定義 */
+:root {
+  /* カラーパレット */
+  --color-primary-wp: #2c3e50; /* メインカラー：ダークブルー */
+  --color-secondary-wp: #3498db; /* アクセントカラー：ライトブルー */
+  --color-accent-wp: #e74c3c; /* アクセントカラー：レッド */
+  --color-text-wp: #2c3e50; /* テキストカラー */
+  --color-heading-wp: #2c3e50; /* 見出しカラー */
+  --color-white-wp: #ffffff; /* 白色 */
+  --color-light-gray-wp: #f5f6fa; /* 薄いグレー */
+  --color-border-wp: #e1e1e1; /* ボーダーカラー */
+
+  /* タイポグラフィ */
+  --font-family-base-wp: "Noto Sans JP", sans-serif;
+  --font-family-heading-wp: "Noto Sans JP", sans-serif;
+
+  /* スペーシング */
+  --slide-padding-v-wp: 4rem;
+  --slide-padding-h-wp: 2rem;
+
+  /* シャドウ */
+  --shadow-sm-wp: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md-wp: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg-wp: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* トランジション */
+  --transition-base-wp: all 0.3s ease;
+}
+
+/* ベーススタイル */
+body {
+  font-family: var(--font-family-base-wp);
+  color: var(--color-text-wp);
+  line-height: 1.6;
+  background-color: var(--color-white-wp);
+  margin: 0;
+}
+
+/* スライド共通スタイル */
+.slide {
+  padding: var(--slide-padding-v-wp) var(--slide-padding-h-wp);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* タイトルバーのスタイル */
+.title-bar {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.title-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #1e377e;
+  border-radius: 2px;
+}
+
+.title-bar::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 15px;
+  height: 15px;
+  background-color: #36a2c4;
+  border-radius: 2px;
+}
+
+/* 共通タイトルスタイル */
+.common-title {
+  font-family: var(--font-family-heading-wp);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-heading-wp);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ハイライトテキスト */
+.highlight {
+  background: linear-gradient(transparent 60%, rgba(231, 76, 60, 0.15) 60%);
+  color: var(--color-accent-wp);
+  font-weight: 600;
+}
+
+/* ================================================== */
+/* ========== Slide 1: Cover Styles (WP) ============ */
+/* ================================================== */
+
+.slide-cover-wp {
+  background: var(--color-heading-wp);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #ffffff;
+  text-align: center;
+}
+
+.slide-cover-wp .cover-logo-wp {
+  max-width: 150px;
+  margin-bottom: 0.5rem;
+  filter: brightness(0) invert(1) !important; /* 黒いロゴを白く変換 */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.cover-logo-container-wp {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.slide-cover-wp .slide-cover-title-wp {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.slide-cover-wp .slide-cover-subtitle-wp {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+/* 会社名と日付のスタイル */
+.slide-cover-wp .presenter-company-wp,
+.slide-cover-wp .date-wp {
+  font-size: 1.6rem; /* フォントサイズ (調整してください) */
+  opacity: 0.85;
+}
+
+.slide-cover-wp .presenter-company-wp {
+  margin-bottom: 0.5rem; /* 日付との間隔 */
+  font-weight: 500; /* 少し太く */
+}
+
+/* ================================================== */
+/* ========== Slide 2: Agenda Styles (WP) =========== */
+/* ================================================== */
+
+.slide-agenda-wp .slide-content {
+  /* 必要に応じてアジェンダスライド全体のパディングなどを調整 */
+}
+
+/* .common-title と .title-bar は既に定義済みと仮定 */
+/* もし未定義であれば、ここで定義します */
+.common-title {
+  display: flex; /* 子要素を横並びにする */
+  align-items: center; /* 縦方向中央揃え */
+  padding-left: 20px; /* 縦棒の幅 + スペース */
+}
+
+.agenda-list-wp {
+  list-style: none; /* デフォルトの黒丸を消す */
+  padding-left: 0; /* 左のパディングをリセット */
+  margin-top: 2rem;
+}
+
+.agenda-item-wp {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--color-light-gray-wp);
+  border-radius: 8px;
+  transition: var(--transition-base-wp);
+}
+
+.agenda-item-wp .agenda-number {
+  color: var(--color-secondary-wp);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.agenda-item-wp .agenda-text {
+  flex-grow: 1; /* テキストが残りのスペースを埋める */
+}
+
+/* ================================================== */
+/* ======= Slide 3: Company Profile Styles (WP) ===== */
+/* ================================================== */
+
+.slide-company-profile-wp .slide-content {
+  /* スライド全体のパディングなど、必要に応じて調整 */
+}
+
+/* .common-title と .title-bar はアジェンダスライドと同様の想定 */
+.slide-company-profile-wp .common-title {
+  /* もしタイトルを中央揃えにしたい場合など */
+  /* text-align: center; */
+  /* padding-left: 0; */ /* 中央揃えの場合、左の棒は不要かも */
+}
+/* .slide-company-profile-wp .title-bar { display: none; } */ /* 中央揃えで棒が不要な場合 */
+
+.company-profile-grid-wp {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* レスポンシブな2カラム */
+  gap: 2rem;
+  align-items: flex-start; /* 上揃え */
+  margin-top: 3rem;
+  margin-bottom: 2.5rem; /* ミッションとのマージン */
+}
+
+.company-info-main-wp,
+.company-info-sub-wp {
+  /* 各カラムのスタイル（必要であれば） */
+}
+
+.profile-item-wp {
+  background-color: var(--color-light-gray-wp);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm-wp);
+}
+
+.profile-item-wp .item-label-wp {
+  color: var(--color-secondary-wp);
+  font-weight: 600;
+}
+
+.profile-item-wp .item-value-wp {
+  color: var(--color-text-wp);
+  flex-grow: 1;
+}
+.profile-item-wp .item-value-wp ul {
+  list-style: disc;
+  padding-left: 1.5em;
+  margin-bottom: 0;
+  margin-top: 0.3em; /* 上のラベルとの間に少しスペース */
+}
+.profile-item-wp .item-value-wp li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95em; /* リストアイテムの文字を少し小さく */
+}
+
+.company-images-wp {
+  margin-top: 1.5rem; /* 事業内容とのマージン */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 画像を2つ横並びに固定 */
+  gap: 1.5rem;
+}
+.company-image-wp {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md-wp);
+  object-fit: cover; /* アスペクト比を保ちつつ領域を埋める */
+  aspect-ratio: 4 / 3; /* 画像のアスペクト比を固定（任意） */
+  transition: var(--transition-base-wp);
+}
+
+.company-mission-wp {
+  margin-top: 2.5rem; /* グリッドとのマージン */
+  padding: 1.5rem 2rem;
+  background-color: var(--color-bg-alt-wp);
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ================================================== */
+/* ====== Slide 4: Company Profile Styles (WP) ====== */
+/* ================================================== */
+
+.slide-company-profile-wp .slide-content {
+  /* このスライド特有のパディングなどが必要な場合はここに記述 */
+}
+
+/* .common-title と .title-bar は共通スタイルを流用 */
+.slide-company-profile-wp .common-title {
+  /* IDセレクタではなくクラスセレクタで指定 */
+  text-align: center; /* 会社概要タイトルを中央揃えにする場合 */
+  margin-bottom: 3rem; /* グリッドレイアウトとの間隔 */
+  font-size: 2.8rem;
+  color: var(--color-primary-wp);
+  /* padding-left: 0; */ /* 中央揃えなら縦棒は不要かも */
+}
+/* .slide-company-profile-wp .title-bar { display: none; } */ /* 中央揃えで縦棒不要な場合 */
+
+.company-profile-grid-wp {
+  /* HTML側のクラス名に合わせる */
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  ); /* レスポンシブな2カラム、最小幅調整 */
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem; /* ミッションとのマージン */
+  /* border: 1px solid #eee; */ /* デバッグ用の枠線は削除 */
+  /* background-color: transparent; */ /* デバッグ用の背景色は削除 */
+}
+
+.company-info-main-wp, /* HTML側のクラス名に合わせる */
+.company-info-sub-wp {
+  /* background-color: #f9f9f9; */ /* 各カラムに背景色をつける場合（任意） */
+  /* padding: 1.5rem; */
+  /* border-radius: 5px; */
+}
+
+.profile-item-wp {
+  /* HTML側のクラス名に合わせる */
+  margin-bottom: 1.1rem; /* 各項目のマージン */
+  display: flex;
+  flex-wrap: wrap; /* 値が長い場合に折り返す */
+  font-size: 1.5rem; /* 全体のフォントサイズを少し上げる */
+  line-height: 1.6;
+}
+
+.profile-item-wp .item-label-wp {
+  /* HTML側のクラス名に合わせる */
+  font-weight: 600; /* ラベルを少し太く */
+  color: var(--color-secondary-wp);
+  margin-right: 0.7em; /* ラベルと値の間のスペース */
+  flex-shrink: 0;
+  min-width: 110px; /* ラベルの最小幅を確保して揃える */
+}
+
+.profile-item-wp .item-value-wp {
+  /* HTML側のクラス名に合わせる */
+  color: var(--color-text-wp);
+  flex-grow: 1;
+}
+.profile-item-wp .item-value-wp.business-description-wp ul {
+  /* 事業内容のリストスタイル */
+  list-style: disc;
+  padding-left: 1.8em; /* リストのインデント調整 */
+  margin-top: 0.2em;
+  margin-bottom: 0;
+}
+.profile-item-wp .item-value-wp.business-description-wp li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95em;
+}
+
+.company-images-wp {
+  /* HTML側のクラス名に合わせる */
+  margin-top: 1.8rem; /* 上の項目とのマージン */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 画像を2つ横並びに固定 */
+  gap: 1.5rem;
+}
+.company-image-wp {
+  /* HTML側のクラス名に合わせる */
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md-wp);
+  object-fit: cover;
+  aspect-ratio: 16 / 10; /* 画像のアスペクト比を調整（例） */
+  transition: var(--transition-base-wp);
+}
+
+.company-mission-wp {
+  margin-top: 3rem;
+  padding: 1.8rem 2.2rem;
+  background-color: var(--color-bg-alt-wp);
+  text-align: center;
+  font-size: 1.6rem; /* フォントサイズ調整 */
+  line-height: 1.7;
+}
+.company-mission-wp .highlight {
+  font-weight: 700;
+}
+
+/* ================================================== */
+/* ======= Slide 5: Strengths Styles (WP) =========== */
+/* ================================================== */
+
+.slide-strengths-wp .slide-content {
+  /* スライド全体のパディングなど、必要に応じて調整 */
+}
+
+/* .common-title と .title-bar はアジェンダスライド等と同様の想定 */
+.slide-strengths-wp .common-title {
+  text-align: center; /* タイトルを中央揃えにする場合 */
+  padding-left: 0; /* 中央揃えの場合、左の棒は不要かも */
+  margin-bottom: 3rem; /* グリッドとの間隔を調整 */
+}
+/* .slide-strengths-wp .title-bar { display: none; } */ /* 中央揃えで棒が不要な場合 */
+
+.strengths-grid-wp {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* レスポンシブな3カラム */
+  gap: 30px; /* 各アイテム間の隙間 */
+  align-items: flex-start; /* アイテムを上揃え */
+  text-align: center; /* アイテム内のテキストを中央揃え */
+}
+
+.strength-item-wp {
+  background-color: var(--color-bg-alt-wp); /* 背景色を少し変える */
+  padding: 2.5rem 2rem; /* 内側のパディング */
+  border-radius: 8px; /* 角を丸める */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 軽い影 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* アイコンとテキストを中央に */
+  height: 100%; /* Flexboxで高さを揃えるため（親がgridなら不要かも） */
+}
+
+.strength-item-wp .strength-icon-wp {
+  /* アイコン画像のスタイル */
+  max-height: 70px; /* アイコンの高さを調整 */
+  margin-bottom: 1.5rem; /* 見出しとの間隔 */
+}
+
+.strength-item-wp h3 {
+  font-size: 1.9rem; /* 見出しのフォントサイズ */
+  color: var(--color-primary-wp);
+  margin-bottom: 1rem; /* 説明文との間隔 */
+  line-height: 1.4; /* 見出しの行間 */
+}
+
+.strength-item-wp p {
+  font-size: 1.4rem; /* 説明文のフォントサイズ */
+  color: var(--color-text-wp);
+  line-height: 1.6;
+  flex-grow: 1; /* Flexboxでテキストエリアの高さを揃えるため */
+}
+
+/* 強みセクション内のハイライトスタイル */
+.strength-item-wp .highlight {
+  font-weight: 700;
+  /* 他のハイライトスタイルは共通の .highlight を継承 */
+}
+
+/* ================================================== */
+/* ======= Slide 5.5: Pricelist Styles (WP) ========= */
+/* ================================================== */
+
+.slide-pricelist-wp .slide-content {
+  /* スライド全体のパディングなど、必要に応じて調整 */
+}
+
+/* .common-title と .title-bar は共通スタイルを流用 */
+.slide-pricelist-wp .common-title {
+  margin-bottom: 1.5rem; /* 導入文との間隔 */
+}
+
+.pricelist-intro-wp {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: var(--color-text-wp);
+  text-align: center; /* 導入文を中央揃え（任意） */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-container-wp {
+  width: 100%;
+  overflow-x: auto; /* 横幅がはみ出る場合にスクロール可能に */
+  margin-bottom: 2rem;
+  border: 1px solid #ddd; /* テーブルの枠線 */
+  border-radius: 5px; /* テーブルの角を丸める */
+}
+
+.pricelist-table-wp {
+  width: 100%;
+  border-collapse: collapse; /* セルの境界線を重ねる */
+  font-size: 1.3rem; /* テーブル内文字の基本サイズ */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md-wp);
+}
+
+.pricelist-table-wp th,
+.pricelist-table-wp td {
+  border: 1px solid #ddd; /* セルの罫線 */
+  padding: 1rem;
+  text-align: left; /* 基本は左揃え */
+  vertical-align: middle; /* 垂直方向中央揃え */
+}
+
+.pricelist-table-wp thead th {
+  background-color: var(--color-primary-wp); /* ヘッダー行の背景色 */
+  color: var(--color-white-wp); /* ヘッダー行の文字色 */
+  font-weight: 600;
+  position: sticky; /* ヘッダーを固定する場合（任意） */
+  top: 0;
+  z-index: 1;
+}
+
+.pricelist-table-wp tbody tr:nth-child(even) {
+  background-color: var(--color-bg-alt-wp); /* 偶数行の背景色を少し変える */
+}
+
+.pricelist-table-wp td:nth-child(3), /* 参考単価の列 */
+.pricelist-table-wp td:nth-child(4) {
+  /* 最小ロットの列 */
+  text-align: right; /* 数値は右揃えにする例 */
+  min-width: 120px; /* 列の最小幅を確保 */
+}
+.pricelist-table-wp td strong {
+  /* 商品名の太字 */
+  color: var(--color-heading-wp);
+}
+
+.pricelist-notes-wp {
+  font-size: 1.3rem;
+  color: var(--color-secondary-wp, #555); /* 少し薄い色で */
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ================================================== */
+/* ======== Slide 6: Challenge Styles (WP) ========== */
+/* ================================================== */
+
+.slide-challenge-wp .slide-content {
+  /* 必要に応じてこのスライド特有のパディングなどを調整 */
+}
+
+/* .common-title と .title-bar は共通スタイルを流用 */
+.slide-challenge-wp .common-title {
+  margin-bottom: 2.5rem; /* 段落との間隔を少し広めに */
+}
+
+.slide-challenge-wp p {
+  font-size: 1.7rem; /* 本文のフォントサイズを少し大きめに */
+  line-height: 1.8; /* 行間を広げて読みやすく */
+  margin-bottom: 2rem; /* 段落間のマージン */
+  color: var(--color-text-wp);
+}
+
+.slide-challenge-wp p strong {
+  color: var(--color-primary-wp); /* 太字部分の色を少し変える（任意） */
+}
+
+.slide-challenge-wp .highlight {
+  /* 共通のハイライトスタイルを継承 */
+  /* 必要であれば、このスライド専用のハイライト調整 */
+  /* background: linear-gradient(transparent 60%, var(--color-secondary-wp) 60%); */
+}
+
+.slide-challenge-wp .slide-image.medium {
+  max-width: 400px; /* 画像サイズ */
+  margin-top: 3rem; /* 上のテキストとのマージン */
+}
+
+/* ================================================== */
+/* ===== Slide 7: Partnership Model Styles (WP) ===== */
+/* ================================================== */
+
+.slide-partnership-model-wp .slide-content {
+  /* スライド全体のパディングなど、必要に応じて調整 */
+}
+
+/* .common-title と .title-bar は共通スタイルを流用 */
+.slide-partnership-model-wp .common-title {
+  margin-bottom: 2.5rem;
+}
+
+.partnership-sections-wp {
+  display: grid; /* 2つのセクションを横並びにする場合 */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* レスポンシブなカラム */
+  gap: 30px; /* セクション間の隙間 */
+  margin-bottom: 2.5rem; /* 下のメッセージとの間隔 */
+}
+
+.ideal-partner-wp,
+.success-steps-wp {
+  /* 各セクションの基本スタイル */
+}
+
+.ideal-partner-wp h3,
+.success-steps-wp h3 {
+  font-size: 1.9rem; /* セクション内見出しのサイズ */
+  color: var(--color-primary-wp);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-secondary-wp); /* 見出しの下線 */
+  display: inline-block; /* 下線がテキスト幅に合うように */
+}
+
+.ideal-partner-wp ul {
+  list-style: none; /* デフォルトの黒丸を消す */
+  padding-left: 0;
+}
+.ideal-partner-wp li {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  padding-left: 1.8em; /* アイコン/記号用のスペース */
+  position: relative;
+}
+.ideal-partner-wp li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 28px;
+  height: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e74c3c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+ol.partnership-steps-wp {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step-counter;
+}
+ol.partnership-steps-wp li {
+  counter-increment: step-counter;
+  margin-bottom: 1rem;
+  padding-left: 2.8em; /* 番号表示スペース */
+  position: relative;
+  font-size: 1.5rem;
+}
+ol.partnership-steps-wp li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--color-primary-wp);
+  color: var(--color-white-wp);
+  width: 2em; /* 番号の円のサイズ */
+  height: 2em;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2em;
+  font-weight: bold;
+  font-size: 0.8em; /* 番号自体のフォントサイズ */
+}
+ol.partnership-steps-wp li strong {
+  /* ステップのタイトル部分 */
+  font-weight: 600;
+  color: var(--color-heading-wp);
+  display: block; /* 改行させる場合 */
+  margin-bottom: 0.3em;
+}
+
+.success-vision-wp {
+  margin-top: 2.5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-primary-wp);
+  padding: 1.5rem;
+  background-color: var(--color-bg-alt-wp);
+  border-radius: 5px;
+}
+.success-vision-wp .highlight {
+  /* 必要ならこのセクション専用のハイライト調整 */
+}
+
+.slide-partnership-model-wp .slide-image.medium {
+  max-width: 350px; /* 画像サイズ */
+  margin-top: 2rem;
+}
+
+/* ================================================== */
+/* ========= Slide 8: CTA Styles (WP) =============== */
+/* ================================================== */
+
+.slide-cta-wp .slide-content {
+  /* .cta-content-wp でも可 */
+  text-align: center; /* CTAセクションは中央揃え */
+}
+
+/* .common-title と .title-bar は共通スタイルを流用 */
+.slide-cta-wp .common-title {
+  margin-bottom: 2.5rem;
+  /* text-align: center; */ /* 必要なら中央揃え */
+  /* padding-left: 0; */
+}
+/* .slide-cta-wp .title-bar { display: none; } */
+
+.slide-cta-wp p {
+  font-size: 1.6rem; /* 本文フォントサイズ */
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 700px; /* 横幅が広がりすぎないように */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slide-cta-wp .cta-lead-wp {
+  /* CTAへの導入文 */
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--color-primary-wp);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button-container-wp {
+  margin: 3rem 0; /* ボタンの上下に十分なスペース */
+}
+
+.cta-button-main-wp {
+  background-color: var(--color-secondary-wp);
+  color: var(--color-white-wp);
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: var(--transition-base-wp);
+  box-shadow: var(--shadow-md-wp);
+  font-size: 1.6rem;
+}
+
+.cta-button-main-wp .icon-cta-wp {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-button-main-wp .icon-cta-wp svg {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}
+
+.contact-info-wp {
+  background-color: var(--color-light-gray-wp);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  box-shadow: var(--shadow-sm-wp);
+}
+.contact-info-wp p {
+  margin-bottom: 0.6rem; /* 各情報の間隔を詰める */
+}
+.contact-info-wp strong {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--color-heading-wp);
+  margin-bottom: 0.8rem;
+}
+.contact-info-wp a {
+  color: var(--color-secondary-wp); /* リンクの色を少し変える */
+  font-weight: 500;
+}

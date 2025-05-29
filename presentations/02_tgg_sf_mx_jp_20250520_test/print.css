@@ -1,0 +1,276 @@
+
+/* ================================================== */
+/* ========== Common Print Layout Styles ============ */
+/* ================================================== */
+
+/* 印刷時の共通レイアウト設定 */
+@media print {
+    .slide {
+        padding: 0 !important;
+        justify-content: flex-start !important;
+        min-height: 0 !important;
+    }
+    .header-right {
+        margin-top: 1.5rem !important;
+    }
+    .print-footer {
+        color: #587897 !important;
+    }
+}
+
+/* ================================================== */
+/* ========== Slide 2: Agenda Styles (WP) =========== */
+/* ================================================== */
+
+/* 印刷時のアジェンダスタイル調整 (任意) */
+@media print {
+    .slide-agenda-wp .common-title {
+        font-size: 2rem !important; /* 印刷時のタイトルサイズ */
+        margin-bottom: 1em !important;
+    }
+    .agenda-item-wp {
+        font-size: 11pt !important; /* 印刷時の項目サイズ */
+        margin-bottom: 0.6em !important;
+    }
+    .agenda-item-wp .agenda-number {
+        min-width: 20px !important;
+    }
+}
+
+/* ================================================== */
+/* ======= Slide 3: Company Profile Styles (WP) ===== */
+/* ================================================== */
+
+/* 印刷時の会社概要スタイル調整 (任意) */
+@media print {
+    .slide-company-profile-wp .common-title {
+        font-size: 2rem !important;
+        margin-bottom: 1em !important;
+    }
+    .company-profile-grid-wp {
+        gap: 3rem !important;
+        margin-bottom: 1.5em !important;
+    }
+    .profile-item-wp {
+        font-size: 9pt !important; /* 印刷時は文字を小さく */
+        margin-bottom: 0.6em !important;
+        padding: 1rem !important;
+    }
+    .profile-item-wp .item-label-wp {
+        min-width: 80px !important;
+    }
+    .company-images-wp {
+        grid-template-columns: 1fr; /* 印刷時は画像を縦積みにする例 */
+        gap: 10px !important;
+    }
+    .company-mission-wp {
+        font-size: 10pt !important;
+        padding: 1em !important;
+        margin-top: 1.5em !important;
+        border-left-width: 3px !important;
+    }
+}
+
+/* ================================================== */
+/* ====== Slide 4: Company Profile Styles (WP) ====== */
+/* ================================================== */
+
+/* 印刷時の会社概要スタイル調整 (任意) */
+@media print {
+    .slide-company-profile-wp .common-title {
+        font-size: 2rem !important;
+        margin-bottom: 1.2em !important;
+    }
+    .company-profile-grid-wp {
+        gap: 3rem !important;
+        margin-bottom: 1.2em !important;
+    }
+    .profile-item-wp {
+        font-size: 9pt !important;
+        margin-bottom: 0.5em !important;
+    }
+    .profile-item-wp .item-label-wp {
+        min-width: 70px !important; /* 印刷時はラベル幅を詰める */
+    }
+    .company-images-wp {
+        grid-template-columns: 1fr !important; /* 印刷時は画像を縦積みに */
+        gap: 8px !important;
+        margin-top: 1em !important;
+    }
+    .company-image-wp {
+        aspect-ratio: auto !important; /* 印刷時はアスペクト比固定を解除 */
+        max-height: 10cm; /* 画像の最大高さを制限（任意） */
+    }
+    .company-mission-wp {
+        font-size: 10pt !important;
+        padding: 1em !important;
+        margin-top: 1.5em !important;
+        border-left-width: 3px !important;
+    }
+}
+
+/* ================================================== */
+/* ======= Slide 5: Strengths Styles (WP) =========== */
+/* ================================================== */
+
+/* 印刷時の強みスライドスタイル調整 (任意) */
+@media print {
+    .slide-strengths-wp .common-title {
+        font-size: 2rem !important;
+        margin-bottom: 1.5em !important;
+    }
+    .strengths-grid-wp {
+        gap: 20px !important; /* 印刷時は少し詰める */
+    }
+    .strength-item-wp {
+        padding: 1.5em !important;
+    }
+    .strength-item-wp .strength-icon-wp {
+        max-height: 50px !important;
+        margin-bottom: 0.8em !important;
+    }
+    .strength-item-wp h3 {
+        font-size: 11pt !important;
+        margin-bottom: 0.5em !important;
+    }
+    .strength-item-wp p {
+        font-size: 9pt !important;
+    }
+}
+
+
+/* ================================================== */
+/* ======= Slide 5.5: Pricelist Styles (WP) ========= */
+/* ================================================== */
+
+/* 印刷時の価格表スライドスタイル調整 (任意) */
+@media print {
+    .slide-pricelist-wp .common-title {
+        font-size: 2rem !important;
+        margin-bottom: 1em !important;
+    }
+    .pricelist-intro-wp {
+        font-size: 9pt !important;
+        margin-bottom: 1.5em !important;
+    }
+    .table-container-wp {
+        border: 0.5pt solid #aaa !important; /* 印刷時の枠線を細く */
+        overflow-x: visible !important; /* スクロールバーは不要 */
+    }
+    .pricelist-table-wp {
+        font-size: 8pt !important; /* 印刷時のテーブル内文字サイズ */
+    }
+    .pricelist-table-wp th,
+    .pricelist-table-wp td {
+        padding: 6px 8px !important; /* 印刷時のセルパディング */
+        border: 0.5pt solid #ccc !important;
+    }
+    .pricelist-table-wp thead th {
+        background-color: #e0e0e0 !important; /* 印刷時はモノクロに近い色に */
+        color: var(--color-black-wp) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    .pricelist-table-wp tbody tr:nth-child(even) {
+        background-color: #f9f9f9 !important; /* 印刷時の偶数行背景 */
+         -webkit-print-color-adjust: exact !important;
+         print-color-adjust: exact !important;
+    }
+    .pricelist-notes-wp {
+        font-size: 8pt !important;
+        margin-top: 0.8em !important;
+    }
+}
+
+
+/* ================================================== */
+/* ======== Slide 6: Challenge Styles (WP) ========== */
+/* ================================================== */
+
+/* 印刷時の課題への挑戦スライドスタイル調整 (任意) */
+@media print {
+    .slide-challenge-wp .common-title {
+        font-size: 2rem !important;
+        margin-bottom: 1.2em !important;
+    }
+    .slide-challenge-wp p {
+        font-size: 10pt !important; /* 印刷時の本文フォントサイズ */
+        line-height: 1.6 !important;
+        margin-bottom: 1em !important;
+    }
+    .slide-challenge-wp .slide-image.medium {
+        max-width: 50% !important; /* 印刷時の画像サイズ */
+        margin-top: 1.5em !important;
+    }
+}
+
+/* ================================================== */
+/* ===== Slide 7: Partnership Model Styles (WP) ===== */
+/* ================================================== */
+
+/* 印刷時のパートナーシップスライドスタイル調整 (任意) */
+@media print {
+    .slide-partnership-model-wp .common-title {
+        font-size: 2rem !important;
+        margin-bottom: 1.2em !important;
+    }
+    .partnership-sections-wp {
+        grid-template-columns: 1fr !important; /* 印刷時は1カラムに */
+        gap: 15px !important;
+        margin-bottom: 1.5em !important;
+    }
+    .ideal-partner-wp h3,
+    .success-steps-wp h3 {
+        font-size: 11pt !important;
+        margin-bottom: 0.6em !important;
+    }
+    .ideal-partner-wp li,
+    ol.partnership-steps-wp li {
+        font-size: 9pt !important;
+        margin-bottom: 0.5em !important;
+    }
+    ol.partnership-steps-wp li::before {
+        width: 1.6em !important;
+        height: 1.6em !important;
+        line-height: 1.6em !important;
+        font-size: 0.8em !important;
+    }
+    .success-vision-wp {
+        font-size: 10pt !important;
+        margin-top: 1.5em !important;
+        padding: 1em !important;
+    }
+    .slide-partnership-model-wp .slide-image.medium {
+        max-width: 40% !important; /* 印刷時の画像サイズ */
+    }
+}
+
+
+
+
+/* ================================================== */
+/* ========= Slide 8: CTA Styles (WP) =============== */
+/* ================================================== */
+
+/* 印刷時のCTAスライドスタイル調整 (任意) */
+@media print {
+    .slide-cta-wp .common-title {
+        font-size: 2rem !important;
+        margin-bottom: 1.2em !important;
+    }
+    .slide-cta-wp p {
+        font-size: 10pt !important;
+        margin-bottom: 1em !important;
+    }
+    .cta-button-container-wp {
+        display: none !important; /* ボタンは印刷しない */
+    }
+    .contact-info-wp {
+        margin-top: 1.5em !important;
+        padding-top: 1em !important;
+        font-size: 9pt !important;
+    }
+    .contact-info-wp strong {
+        font-size: 10pt !important;
+    }
+}
