@@ -1,0 +1,188 @@
+/*
+================================================================================
+パーツ名: パートナーシップモデルスライド CSS (Partnership Model Slide CSS)
+ファイル名: 07_partnership_slide.css
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+このCSSファイルは、「07_partnership_slide.html」パーツ
+（パートナーシップモデルスライド）専用のスタイルを定義します。
+
+【使い方】
+- (01_title_slide.css と同様のコメントをここに記述)
+
+【思想・運用について】
+- (01_title_slide.css と同様のコメントをここに記述)
+
+【依存関係】
+- HTML: 07_partnership_slide.html
+- CSS: _css/style.css (CSS変数, .common-title, .highlight, .slide-image など)
+================================================================================
+
+↓↓↓ ここからパーツのCSS構造 ↓↓↓ */
+
+.slide-partnership-model-wp .slide-content-wrapper {
+    /* 必要に応じてこのスライド特有のパディングなどを設定 */
+}
+
+.slide-partnership-model-wp .common-title {
+    margin-bottom: 2.5rem;
+}
+
+.partnership-sections-wp {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* レスポンシブなカラム */
+    gap: 3rem; /* セクション間の隙間 */
+    margin-bottom: 2.5rem;
+}
+
+.ideal-partner-wp,
+.success-steps-wp {
+    /* 各セクションのコンテナ */
+}
+
+.ideal-partner-wp h3,
+.success-steps-wp h3 {
+    font-size: 1.8rem;
+    color: var(--color-primary-wp);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-secondary-wp);
+    display: inline-block; /* 下線がテキスト幅に合うように */
+}
+
+/* 「理想のパートナー像」セクションのリスト */
+.ideal-partner-wp ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.ideal-partner-wp li {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 2em; /* アイコン用のスペース */
+    position: relative;
+    line-height: 1.5;
+}
+
+.ideal-partner-wp li::before { /* チェックマーク風アイコンの例 */
+    content: "✓"; /* またはSVGアイコン、画像など */
+    position: absolute;
+    left: 0;
+    top: 0.1em; /* 位置調整 */
+    color: var(--color-accent-wp); /* アイコンの色 */
+    font-weight: bold;
+    font-size: 1.2em; /* アイコンサイズ */
+}
+
+/* 「成功へのステップ」セクションの番号付きリスト */
+ol.partnership-steps-wp {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: partnership-step-counter; /* カウンターのリセット */
+}
+
+ol.partnership-steps-wp li {
+    counter-increment: partnership-step-counter; /* カウンターを増やす */
+    margin-bottom: 1.2rem;
+    padding-left: 3em; /* 番号表示のためのスペース */
+    position: relative;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+ol.partnership-steps-wp li::before { /* 番号表示スタイル */
+    content: counter(partnership-step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--color-secondary-wp);
+    color: var(--color-white-wp);
+    width: 2em;  /* 円の直径 */
+    height: 2em; /* 円の直径 */
+    border-radius: 50%; /* 円形にする */
+    text-align: center;
+    line-height: 2em; /* 数字を円の中央に */
+    font-weight: bold;
+    font-size: 0.9em; /* 数字自体のサイズ */
+}
+
+ol.partnership-steps-wp li strong { /* ステップのタイトル部分 */
+    font-weight: 600;
+    display: block; /* タイトルを独立した行に */
+    margin-bottom: 0.3em;
+    color: var(--color-heading-wp);
+}
+
+.success-vision-wp {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--color-light-gray-wp);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.7;
+    border-radius: 6px;
+    /* border-left: 5px solid var(--color-accent-wp); */ /* アクセント例 */
+}
+
+/* .slide-image, .highlight は共通スタイルで定義されている想定 */
+
+
+/* --- 印刷時のスタイル --- */
+@media print {
+    .slide-partnership-model-wp .common-title {
+        font-size: 16pt !important;
+        margin-bottom: 1em !important;
+    }
+    .partnership-sections-wp {
+        grid-template-columns: 1fr !important; /* 印刷時は1カラムに */
+        gap: 1cm !important;
+        margin-bottom: 1em !important;
+    }
+    .ideal-partner-wp h3,
+    .success-steps-wp h3 {
+        font-size: 12pt !important;
+        margin-bottom: 0.5em !important;
+        padding-bottom: 0.3em !important;
+        border-bottom-width: 1pt !important;
+    }
+    .ideal-partner-wp li,
+    ol.partnership-steps-wp li {
+        font-size: 9.5pt !important;
+        margin-bottom: 0.4em !important;
+        padding-left: 2em !important; /* アイコン/番号スペース調整 */
+    }
+    .ideal-partner-wp li::before {
+        top: 0.2em !important;
+        font-size: 1em !important;
+    }
+    ol.partnership-steps-wp li::before {
+        width: 1.8em !important;
+        height: 1.8em !important;
+        line-height: 1.8em !important;
+        font-size: 0.8em !important;
+        left: 0.2em !important; /* 位置調整 */
+    }
+    ol.partnership-steps-wp li strong {
+        margin-bottom: 0.2em !important;
+    }
+    .success-vision-wp {
+        font-size: 10pt !important;
+        margin-top: 1em !important;
+        padding: 0.8em 1em !important;
+        background-color: transparent !important;
+        border: 0.5pt solid var(--color-border-wp, #bbb) !important;
+        border-radius: 3px !important;
+    }
+    .slide-partnership-model-wp .slide-image.medium {
+        max-width: 45% !important;
+        margin-top: 1em !important;
+        border: 0.5pt solid var(--color-border-wp, #bbb) !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ↑↑↑ ここまでパーツのCSS構造 ↑↑↑ */

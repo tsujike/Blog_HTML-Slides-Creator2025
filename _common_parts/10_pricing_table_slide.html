@@ -1,113 +1,94 @@
 <!--
 ================================================================================
-パーツ名: 価格表スライド コンテンツ (Pricing Table Slide Content)
-ファイル名: 10_pricing_table_slide.html
-作成日: YYYY-MM-DD (実際の作成日を入れてください)
-更新日: YYYY-MM-DD (実際の更新日を入れてください)
+パーツ名: 価格表スライド (Pricelist Slide)
+ファイル名: 10_pricelist_slide.html
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
 バージョン: 1.0
 
 【説明】
-製品やサービスの価格プラン、各プランに含まれる機能や条件などを
-表形式などで分かりやすく提示するためのHTML構造を提供します。
+商品やサービスの価格リストを表示するためのスライド全体のHTML構造を提供します。
+スライドタイトル、導入文、価格表（テーブル形式）、注釈文を含むことを想定しています。
 
 【使い方】
 1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
-   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
-2. 各プレゼンテーション資料のHTMLファイル内で、価格表を表示したい
-   <section class="slide slide-pricing"> (または同等の価格表用クラスを持つ要素) の
-   コンテンツエリアにペーストしてください。
-   例:
-   <section class="slide slide-pricing">
-       <div class="slide-content"> <!-- この中にペースト -->
-           <!-- ここに価格表スライドのコンテンツをペースト -->
-       </div>
-       <!-- (もしあれば) print-page-break-adjuster など -->
-   </section>
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」までの <section>...</section> 全体）をコピーしてください。
+2. 各プレゼンテーション資料のメインHTMLファイル（例: index.html）内の
+   <main class="presentation-content"> タグの、前スライドの </section> タグの直後にペーストしてください。
+
+【思想・運用について】
+- (01_title_slide.html と同様の思想・運用コメントをここに記述)
 
 【依存関係】
 - CSS:
-    - このパーツの基本的なスタイルは、対応するCSSファイル (10_pricing_table_slide.css) に記述されています。
-    - 10_pricing_table_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
-    - このパーツは、親要素に `.slide` 及び `.slide-pricing` (または価格表用スライドの類似クラス) が指定され、
-      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
-- JavaScript:
-    - 特になし (もし価格シミュレーションなどの動的な機能があれば、ここに記述)
+    - このパーツの基本的なスタイルは、対応するCSSファイル (例: 05_pricelist_slide.css) に記述されています。
+    - `.slide`, `.slide-pricelist-wp`, `.common-title`, `.title-bar`, `.pricelist-intro-wp`,
+      `.table-container-wp`, `.pricelist-table-wp`, `.pricelist-notes-wp` などのクラスに対するスタイルが必要です。
+- JavaScript: 特になし
 
 【カスタマイズのポイント】
-- スライドのタイトル (例: <h2>料金プラン</h2>, <h2>価格について</h2>) は適宜変更可能です。
-- プラン名、価格、各プランで提供される機能やサービス内容、注意書きなどを正確に記述してください。
-- 表 (<table>) を使うのが一般的ですが、複数のプランをカード形式で並べるレイアウトも考えられます。
-- 推奨プランを目立たせるなどのデザイン的な工夫も有効です。
-- 各要素に付与するクラス名 (例: "pricing-plan", "feature-list") は、対応するCSS (10_pricing_table_slide.css) でスタイルが定義されている場合、変更するとCSS側も修正が必要です。
-
-【基本的なHTML構造の注意】
-- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
-- HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
-  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
-- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
+- スライドタイトル (<h2 class="common-title">内のテキスト)
+- 導入文 (<p class="pricelist-intro-wp">内のテキスト)
+- テーブルのヘッダー (<thead>内の<th>テキスト)
+- テーブルの各行のデータ (<tbody>内の<td>テキスト)
+    - 商品名、規格/産地、単価、最小ロット、備考など
+- 注釈文 (<p class="pricelist-notes-wp">内のテキスト)
+- テーブルの行数や列数は、必要に応じて追加・削除・変更してください。
 ================================================================================
--->
 
-<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+<section id="slide-pricelist" class="slide slide-pricelist-wp">
+    <div class="slide-content-wrapper"> <!-- ← 共通ラッパー (任意) -->
+        <h2 class="common-title">
+            <span class="title-bar"></span>価格リスト（一例） <!-- ← プレースホルダーに変更 -->
+        </h2>
+        <p class="pricelist-intro-wp">
+            こちらは弊社が取り扱う商品/サービスの一例と参考価格です。<br />
+            詳細な条件や最新情報については、お気軽にお問い合わせください。
+        </p>
 
-<!-- ここに10_pricing_table_slide.htmlの実際のHTMLコードが入ります -->
-<!-- 例: 3つのプランを比較するテーブル形式の価格表 -->
-<!--
-<h2 class="pricing-slide-title">料金プランのご案内</h2>
-
-<table class="pricing-table">
-    <thead>
-        <tr>
-            <th> </th> <!-- 左上の空セル -->
-            <th class="plan-name basic-plan">ベーシックプラン</th>
-            <th class="plan-name standard-plan recommended">スタンダードプラン <span class="recommend-badge">おすすめ</span></th>
-            <th class="plan-name premium-plan">プレミアムプラン</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="price-row">
-            <td class="feature-label">月額料金</td>
-            <td class="price-value">¥X,XXX</td>
-            <td class="price-value">¥Y,YYY</td>
-            <td class="price-value">¥Z,ZZZ</td>
-        </tr>
-        <tr>
-            <td class="feature-label">機能A</td>
-            <td>✔️</td>
-            <td>✔️</td>
-            <td>✔️</td>
-        </tr>
-        <tr>
-            <td class="feature-label">機能B</td>
-            <td>-</td>
-            <td>✔️</td>
-            <td>✔️</td>
-        </tr>
-        <tr>
-            <td class="feature-label">機能C</td>
-            <td>-</td>
-            <td>-</td>
-            <td>✔️</td>
-        </tr>
-        <tr>
-            <td class="feature-label">サポート</td>
-            <td>メール</td>
-            <td>メール・チャット</td>
-            <td>電話・専任担当</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="4" class="pricing-notes">
-                <p>※表示価格は全て税抜きです。※最低契約期間は〇ヶ月です。</p>
-            </td>
-        </tr>
-    </tfoot>
-</table>
-
-<div class="additional-pricing-info">
-    <p>詳細なオプションやカスタマイズについては、別途お問い合わせください。</p>
-</div>
--->
-
+        <div class="table-container-wp">
+            <table class="pricelist-table-wp">
+                <thead>
+                    <tr>
+                        <th>商品/サービス名</th>
+                        <th>規格/内容</th>
+                        <th>参考単価</th>
+                        <th>最小単位</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>商品A (プレミアム)</strong></td>
+                        <td>詳細な規格や内容をここに記述します。</td>
+                        <td>¥XX,XXX - ¥YY,YYY</td>
+                        <td>1個から</td>
+                        <td>期間限定オファーあり</td>
+                    </tr>
+                    <tr>
+                        <td><strong>サービスB (スタンダード)</strong></td>
+                        <td>月額プラン、年間契約で割引あり。</td>
+                        <td>¥A,AAA / 月</td>
+                        <td>1契約</td>
+                        <td>初期費用別途</td>
+                    </tr>
+                    <tr>
+                        <td><strong>商品C (エントリー)</strong></td>
+                        <td>初心者向けセット。</td>
+                        <td>¥B,BBB</td>
+                        <td>1セット</td>
+                        <td>送料無料</td>
+                    </tr>
+                    <!-- 必要に応じて行を追加 -->
+                </tbody>
+            </table>
+        </div>
+        <p class="pricelist-notes-wp">
+            ※上記価格はすべて税抜表示です。予告なく変更される場合があります。<br />
+            ※詳細な仕様やカスタマイズについては、担当者までお問い合わせください。
+        </p>
+    </div>
+    <!-- <div class="print-page-break-adjuster"></div> -->
+</section>
 <!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

@@ -1,0 +1,130 @@
+/*
+================================================================================
+パーツ名: 強み紹介スライド CSS (Strengths Slide CSS)
+ファイル名: 16_strengths_slide.css
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+このCSSファイルは、「04_strengths_slide.html」パーツ（強み紹介スライド）
+専用のスタイルを定義します。
+
+【使い方】
+- (01_title_slide.css と同様のコメントをここに記述)
+
+【思想・運用について】
+- (01_title_slide.css と同様のコメントをここに記述)
+
+【依存関係】
+- HTML: 04_strengths_slide.html
+- CSS: _css/style.css (CSS変数, .common-title, .highlight など)
+================================================================================
+
+↓↓↓ ここからパーツのCSS構造 ↓↓↓ */
+
+.slide-strengths-wp .slide-content-wrapper {
+    /* 必要に応じてこのスライド特有のパディングなどを設定 */
+}
+
+.slide-strengths-wp .common-title {
+    /* 強み紹介スライドのタイトルに特有のスタイルがあればここに */
+    text-align: center; /* タイトルを中央揃えにする例 */
+    margin-bottom: 3rem;
+}
+/* もし中央揃えの場合、共通の .title-bar が不要なら非表示にする */
+/*
+.slide-strengths-wp .common-title .title-bar {
+    display: none;
+}
+*/
+
+.strengths-grid-wp {
+    display: grid;
+    /* スクリーンのサイズに応じてカラム数を調整 (例: 1-3カラム) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem; /* アイテム間の隙間 */
+    align-items: stretch; /* アイテムの高さを揃える */
+    text-align: center; /* 各アイテム内のテキストを中央揃え */
+    margin-top: 2rem; /* タイトルからのマージン */
+}
+
+.strength-item-wp {
+    background-color: var(--color-light-gray-wp);
+    padding: 2rem 1.5rem; /* 内側のパディング */
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm-wp);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100%; */ /* align-items: stretch で高さが揃うので不要な場合が多い */
+}
+
+.strength-item-wp .strength-icon-wp {
+    max-height: 60px; /* アイコンの最大高さ */
+    margin-bottom: 1.5rem;
+}
+
+.strength-item-wp h3 {
+    font-size: 1.8rem;
+    color: var(--color-primary-wp);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    /* 強調キーワードとの兼ね合いで高さを確保したい場合 min-height を使うことも */
+    /* min-height: 2.8em; */ /* 例: 2行分の高さを確保 */
+}
+
+.strength-item-wp p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    flex-grow: 1; /* 説明文エリアが残りの高さを埋めるようにする */
+}
+
+.strength-item-wp .highlight {
+    /* 共通の .highlight スタイルを継承 */
+    font-weight: 700; /* 強調をより強くする場合など */
+}
+
+/* --- 印刷時のスタイル --- */
+@media print {
+    .slide-strengths-wp .common-title {
+        font-size: 16pt !important;
+        margin-bottom: 1.2em !important;
+        text-align: left !important; /* 印刷時は左揃えに戻す例 */
+    }
+    /* 印刷時、共通の .title-bar を表示する場合の調整 */
+    /*
+    .slide-strengths-wp .common-title .title-bar {
+        display: inline-block !important;
+    }
+    */
+
+    .strengths-grid-wp {
+        gap: 1cm !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* 印刷時は3カラム固定を試す */
+        margin-top: 1em !important;
+        text-align: left !important; /* 各アイテム内のテキストも左揃えに */
+    }
+    .strength-item-wp {
+        padding: 0.8em !important;
+        background-color: transparent !important;
+        border: 0.5pt solid var(--color-border-wp, #bbb) !important;
+        box-shadow: none !important;
+        align-items: flex-start !important; /* アイコンやテキストを左揃えに */
+    }
+    .strength-item-wp .strength-icon-wp {
+        max-height: 30px !important;
+        margin-bottom: 0.5em !important;
+        align-self: center; /* アイコンだけは中央にしたい場合 */
+    }
+    .strength-item-wp h3 {
+        font-size: 10pt !important;
+        margin-bottom: 0.4em !important;
+        text-align: left !important;
+    }
+    .strength-item-wp p {
+        font-size: 8.5pt !important;
+        text-align: left !important;
+    }
+}
+/* ↑↑↑ ここまでパーツのCSS構造 ↑↑↑ */

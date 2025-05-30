@@ -1,0 +1,189 @@
+/*
+================================================================================
+ファイル名: print.css (テンプレートコア)
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+このファイルは、「Blog_HTML-Slide-Creator2025」テンプレートシステムの
+印刷時における主要なスタイルを定義します。
+@pageルールによる用紙設定、印刷時の基本的なリセットスタイル、
+全スライド共通の印刷スタイル（.slideクラスのサイズ調整など）を含みます。
+各スライドパーツ固有の印刷スタイルは、それぞれのパーツCSSファイル内や、
+プロジェクト固有のprint.cssで定義されることもあります。
+
+【使い方】
+新しいプレゼンテーションプロジェクトを作成する際、このファイルをプロジェクトの
+`css` フォルダに `print.css` という名前でコピーしてください。
+プロジェクト固有の印刷スタイル調整は、コピー先のファイルで行います。
+このファイルは、通常、プロジェクトのベースHTML (`index.html`) から
+<link rel="stylesheet" href="css/print.css" media="print">
+のようにして読み込まれます。
+
+【思想・運用について】
+- 印刷プレビューと実際の印刷結果の一貫性を保つための基本的な設定を行います。
+- テンプレートコアの更新は非可逆であり、過去のプロジェクトには自動反映されません。
+
+【依存関係】
+- HTML: _common_parts/00_base_template_index.html (およびそれから生成される各プロジェクトのindex.html)
+- CSS: _css/style.css (CSS変数や一部共通クラスを参照する可能性あり)
+       _css/slide-headerfooter.css (ヘッダー・フッターの高さなどを考慮する場合)
+================================================================================
+*/
+
+@charset "UTF-8";
+
+/* ================================================== */
+/* ================= @page Rule ===================== */
+/* ================================================== */
+@page {
+    size: A4 landscape; /* A4横向き */
+    margin: 1cm;       /* 印刷時のマージン (納品コードの値を採用) */
+
+    /* ブラウザが自動で挿入するヘッダー・フッターを完全に非表示にする */
+    @top-left { content: ""; }
+    @top-center { content: ""; }
+    @top-right { content: ""; }
+    @bottom-left { content: ""; }
+    @bottom-center { content: ""; }
+    @bottom-right { content: ""; }
+}
+
+/* ================================================== */
+/* ============ Print Basic Resets ================== */
+/* ================================================== */
+@media print {
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: var(--color-white-wp, #ffffff) !important; /* 変数がなければ白 */
+        color: var(--color-black-wp, #000000) !important;     /* 変数がなければ黒 */
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        font-size: 10pt; /* 印刷時の基本フォントサイズ（調整可） */
+        line-height: 1.4; /* 印刷時の基本行間（調整可） */
+    }
+
+    /* 画面表示専用の要素は非表示に */
+    .screen-only,
+    [data-screen-only="true"] {
+        display: none !important;
+    }
+
+    /* リンクの見た目をシンプルに */
+    a,
+    a:visited {
+        text-decoration: none !important;
+        color: inherit !important; /* 本文と同じ色にする */
+    }
+    /* 外部リンクのURLを表示する設定 (任意) */
+    /*
+    a[href^="http"]::after,
+    a[href^="https"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.9em;
+        color: #555;
+        word-break: break-all;
+    }
+    */
+
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid !important; /* 画像の途中で改ページされるのを防ぐ */
+    }
+
+    /* テーブルの罫線が細くなりすぎないように、また背景色も考慮 */
+    table, th, td {
+        border-color: #666 !important; /* ある程度の濃さの罫線 */
+    }
+    thead {
+        display: table-header-group !important; /* テーブルが複数ページにまたがる場合、ヘッダーを各ページに表示 */
+    }
+    tbody tr {
+        page-break-inside: avoid !important; /* 表の行の途中で改ページされるのを防ぐ */
+    }
+}
+
+/* ================================================== */
+/* =========== Print Slide Common Styles ============ */
+/* ================================================== */
+@media print {
+    .presentation-content { /* <main> タグ */
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .slide {
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        position: relative !important;
+
+        /* A4横向きのコンテンツ領域サイズ (@pageマージン1cmを考慮) */
+        width: calc(29.7cm - 2 * 1cm) !important;  /* 29.7cm (A4幅) - 左右マージン計2cm */
+        height: calc(21.0cm - 2 * 1cm) !important; /* 21.0cm (A4高さ) - 上下マージン計2cm */
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background-color: var(--color-white-wp, #ffffff) !important;
+
+        /* ヘッダーとフッターの領域を確保するためのパディング */
+        /* これらの値は _css/slide-headerfooter.css で定義されるヘッダー/フッターの高さや、 */
+        /* _css/style.css で定義された --print-header-height, --print-footer-height 変数を参照 */
+        padding-top: calc(var(--print-header-height, 30px) + 0.5cm) !important;
+        padding-bottom: calc(var(--print-footer-height, 25px) + 0.5cm) !important;
+        padding-left: 1cm !important;  /* スライド内容自体の左右パディング */
+        padding-right: 1cm !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* コンテンツを上から配置 */
+        align-items: stretch !important;         /* コンテンツを幅いっぱいに広げる */
+        min-height: 0 !important; /* 画面表示用のmin-heightを上書き */
+    }
+
+    .slide:last-of-type {
+        page-break-after: auto !important;
+    }
+
+    /* 納品コードのprint.cssにあったスライドの共通調整の残滓は、上記でカバーされているか確認 */
+    /* 
+    .slide {
+        padding: 0 !important; // 上記で具体的に指定しているので、これは不要か、意図を確認
+    }
+    .header-right { // これは .print-header .header-right のことであれば slide-headerfooter.css へ
+        margin-top: 1.5rem !important; 
+    }
+    .print-footer { // これは slide-headerfooter.css で指定
+        color: #587897 !important;
+    }
+    */
+}
+
+/* ================================================== */
+/* === Print Styles for Specific Slide Parts (from original print.css) === */
+/* ================================================== */
+/*
+   納品された print.css にあった、各スライドタイプごとのスタイル調整は、
+   それぞれのパーツCSS (_common_parts/XX_slide_name.css) 内に
+   @media print { ... } ブロックとして記述するか、
+   あるいは、この print.css の下部にまとめて記述します。
+   （パーツCSSに含める方がモジュール性は高まります）
+
+   例:
+   @media print {
+       .slide-agenda-wp .common-title {
+           font-size: 1.8rem !important; // 納品コードは2rem
+           margin-bottom: 0.8em !important;
+       }
+       .agenda-item-wp {
+           font-size: 10pt !important; // 納品コードは11pt
+           margin-bottom: 0.5em !important;
+       }
+       // ... (納品されたprint.cssの他のスライドタイプごとのスタイルをここに持ってくるか、パーツCSSへ)
+   }
+*/

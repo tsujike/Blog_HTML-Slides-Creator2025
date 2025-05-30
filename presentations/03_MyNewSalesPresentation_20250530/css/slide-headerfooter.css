@@ -1,0 +1,96 @@
+/*
+================================================================================
+ファイル名: slide-headerfooter.css (テンプレートコア)
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+このファイルは、「Blog_HTML-Slide-Creator2025」テンプレートシステムの
+JavaScript (`script_slide-headerfooter.js`) によって動的に挿入される
+印刷時のヘッダー (.print-header) およびフッター (.print-footer) の
+スタイルを定義します。
+
+【使い方】
+新しいプレゼンテーションプロジェクトを作成する際、このファイルをプロジェクトの
+`css` フォルダに `slide-headerfooter.css` という名前でコピーしてください。
+このファイルは、通常、プロジェクトのベースHTML (`index.html`) から
+<link rel="stylesheet" href="css/slide-headerfooter.css" media="print">
+のようにして読み込まれます。
+
+【思想・運用について】
+- 印刷時のヘッダー・フッターの見た目を一元管理します。
+- テンプレートコアの更新は非可逆であり、過去のプロジェクトには自動反映されません。
+
+【依存関係】
+- HTML: JavaScriptによって .print-header, .print-footer クラスを持つdiv要素が
+        各.slide要素内に挿入される想定。
+- JS: _js/script_slide-headerfooter.js (または同等の機能を持つスクリプト)
+- CSS Variables: _css/style.css で定義されたCSS変数
+                 (例: --print-header-height, --print-footer-height, --color-text-wp)
+                 を参照することを推奨します。
+================================================================================
+*/
+
+@media print { /* このファイル全体が media="print" で読み込まれる想定だが、念のため囲む */
+
+    /* --- Print Header --- */
+    .print-header {
+        position: absolute !important;
+        /* 位置は、@pageのマージンと、.slideのpadding-topを考慮して、スライドコンテンツ領域の上端に合わせる */
+        top: 0 !important; /* .slide の padding-top の内側が0の位置 */
+        left: 0 !important; /* .slide の padding-left の内側が0の位置 */
+        right: 0 !important;/* .slide の padding-right の内側が0の位置 */
+        height: var(--print-header-height, 30px) !important; /* 高さを変数で管理 */
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important; /* ロゴを右に配置するため */
+        /* padding: 0 10px; */ /* 左右のパディングは .slide の padding-left/right で確保される想定 */
+        z-index: 100 !important;
+    }
+
+    .print-header .header-right { /* JSで生成されるHTML構造に合わせる */
+        /* 特に指定がなければ、flex-endで右に寄る */
+    }
+
+    .print-header .print-logo {
+        max-height: calc(var(--print-header-height, 30px) - 4px) !important; /* ヘッダー高さ - 少しの上下余白 */
+        width: auto !important;
+        display: block !important;
+    }
+
+
+    /* --- Print Footer --- */
+    .print-footer {
+        position: absolute !important;
+        /* 位置は、@pageのマージンと、.slideのpadding-bottomを考慮して、スライドコンテンツ領域の下端に合わせる */
+        bottom: 0 !important; /* .slide の padding-bottom の内側が0の位置 */
+        left: 0 !important;
+        right: 0 !important;
+        height: var(--print-footer-height, 25px) !important; /* 高さを変数で管理 */
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        /* justify-content は子要素で制御 */
+        padding: 0 10px !important; /* フッター要素内の左右パディング */
+        font-size: 8pt !important;
+        background-color: var(--color-footer-bg, #1e377e) !important; /* フッター背景色 (変数または直接指定) */
+        /* color: var(--color-footer-text, var(--color-text-wp, #fff)) !important; フッター文字色 */
+        /* 納品コードのフッター色指定例 */
+        /* background-color: #1e377e !important; */
+        color: #ffffff !important;
+        /* または color: #587897 !important; (納品コードのprint.cssより) */
+        z-index: 100 !important;
+    }
+
+    .print-footer .footer-center {
+        flex-grow: 1 !important;
+        text-align: center !important;
+    }
+
+    .print-footer .footer-right {
+        text-align: right !important;
+        white-space: nowrap !important;
+    }
+}

@@ -1,67 +1,74 @@
 <!--
 ================================================================================
-パーツ名: タイトルスライド コンテンツ (Title Slide Content)
+パーツ名: タイトルスライド (Title Slide)
 ファイル名: 01_title_slide.html
-作成日: YYYY-MM-DD (実際の作成日を入れてください)
-更新日: YYYY-MM-DD (実際の更新日を入れてください)
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
 バージョン: 1.0
 
 【説明】
-プレゼンテーションの表紙となるスライドの主要なコンテンツ部分のHTML構造を提供します。
-メインタイトル、サブタイトル、発表者/会社名、日付などを含むことを想定しています。
+プレゼンテーションの表紙となるスライド全体のHTML構造を提供します。
+メインタイトル、ロゴ、サブタイトル、発表者/会社名、日付などを含むことを想定しています。
 
 【使い方】
 1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
-   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
-2. 各プレゼンテーション資料のHTMLファイル内で、タイトルスライドとして表示したい
-   <section class="slide slide-cover"> (または同等の表紙用クラスを持つ要素) の
-   コンテンツエリアにペーストしてください。
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」までの <section>...</section> 全体）をコピーしてください。
+2. 各プレゼンテーション資料のメインHTMLファイル（例: index.html）内の
+   <main class="presentation-content"> タグの直下にペーストしてください。
    例:
-   <section class="slide slide-cover">
-       <div class="slide-content"> <!-- この中にペースト -->
-           <!-- ここにタイトルスライドのコンテンツをペースト -->
-       </div>
-       <!-- (もしあれば) print-page-break-adjuster など -->
-   </section>
+   <main class="presentation-content">
+       <!-- ここにタイトルスライドのHTMLをペースト -->
+       <!-- 次のスライドパーツが続く -->
+   </main>
+
+【思想・運用について】
+- このパーツは、新しいプレゼンテーション作成時の「出発点」として提供されます。
+- コピーして使用した後、各プロジェクトで自由にカスタマイズしてください。
+- テンプレートコア（このファイルを含む）が更新されても、過去に作成されたプロジェクトのデザインには自動で反映されません（非可逆な更新）。
+- 新しいプロジェクトでこのパーツを改善した場合、その知見をテンプレートコアにフィードバックし、テンプレートコア自体を育てていくことを推奨します。
 
 【依存関係】
 - CSS:
-    - このパーツの基本的なスタイルは、対応するCSSファイル (01_title_slide.css) に記述されています。
-    - 01_title_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
-    - このパーツは、親要素に `.slide` 及び `.slide-cover` (または表紙用の類似クラス) が指定され、
-      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
+    - このパーツの基本的なスタイルは、対応するCSSファイル (例: 01_title_slide.css) に記述されています。
+    - このパーツCSSは、プロジェクト側の主要なCSSファイル (例: css/style.css) から @import されるか、
+      あるいはプロジェクト側のcssフォルダにコピーして使用されることを想定しています。
+    - このパーツは、 `.slide` 及び `.slide-cover-wp` (または表紙用の類似クラス) を持つ <section> 要素として設計されています。
 - JavaScript:
     - 特になし (もし日付を動的に表示するなどのJSがあれば、ここに記述)
 
 【カスタマイズのポイント】
 - 以下の要素内のテキストは、各プレゼンテーションに合わせて必ず変更してください:
-    - メインタイトル (例: <h1>, <h1 class="cover-title">)
-    - サブタイトル (例: <p class="cover-subtitle">)
-    - 発表者名/会社名 (例: <p class="presenter-company">)
-    - 日付 (例: <p class="date">)
-- ロゴ画像のパス (<img> タグの src属性) は、実際のファイル場所に合わせてください。
-- 各要素のクラス名 (例: "cover-title", "cover-logo") は、対応するCSS (01_title_slide.css) でスタイルが定義されているため、変更する場合はCSS側も合わせて修正が必要です。
+    - ロゴ画像のパス (<img> タグの src属性)
+    - メインタイトル (例: <h1 class="slide-cover-title-wp">)
+    - サブタイトル (例: <p class="slide-cover-subtitle-wp">)
+    - 発表者名/会社名 (例: <p class="presenter-company-wp">)
+    - 日付 (例: <p class="date-wp">)
+- 各要素のクラス名 (例: "slide-cover-title-wp", "cover-logo-wp") は、対応するCSSでスタイルが定義されているため、変更する場合はCSS側も合わせて修正が必要です。
 
 【基本的なHTML構造の注意】
-- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
+- このHTML断片は、<section> タグで囲まれた単一のスライドを表します。
+  既存のHTML文書の <main> タグ内の適切な場所に挿入して使用してください。
 - HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
-  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
-- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
 ================================================================================
--->
 
-<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
-
-<!-- ここに01_title_slide.htmlの実際のHTMLコードが入ります -->
-<!-- 例: -->
-<!--
-<img src="../../assets/images/common/logo.png" alt="会社ロゴ" class="cover-logo">
-<h1 class="cover-title">プレゼンテーションのメインタイトル</h1>
-<p class="cover-subtitle">サブタイトルや簡単な説明</p>
-<div class="presenter-info">
-    <p class="presenter-company">株式会社〇〇</p>
-    <p class="date">2024年5月17日</p>
-</div>
--->
-
+↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+<section id="slide-cover" class="slide slide-cover-wp">
+    <div class="cover-logo-container-wp">
+      <img
+        src="logo_tg_main.png" <!-- プロジェクト側でパス調整＆画像配置 -->
+        alt="TG GLOBAL Logo"
+        class="cover-logo-wp"
+      />
+      <h1 class="slide-cover-title-wp">
+        日本の鮮度革命をメキシコへ<br />TG GLOBALと切り拓く<br />チルド海産物市場
+      </h1>
+    </div>
+    <p class="slide-cover-subtitle-wp">
+      高品質な日本産 "チルド" 海産物の安定供給<br />輸入プロセスを共に乗り越えるパートナーシップのご提案
+    </p>
+    <div class="presenter-info-wp">
+      <p class="presenter-company-wp">株式会社TG GLOBAL</p>
+      <p class="date-wp">2025年4月</p>
+    </div>
+</section>
 <!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

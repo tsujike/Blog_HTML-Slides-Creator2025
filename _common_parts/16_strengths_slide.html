@@ -1,0 +1,88 @@
+<!--
+================================================================================
+パーツ名: 強み紹介スライド (Strengths Slide)
+ファイル名: 16_strengths_slide.html
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+会社や製品・サービスの強みを3点（または任意の数）で紹介するためのスライド全体のHTML構造を提供します。
+各強みはアイコン、見出し、説明文で構成され、グリッドレイアウトで表示されることを想定しています。
+
+【使い方】
+1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」までの <section>...</section> 全体）をコピーしてください。
+2. 各プレゼンテーション資料のメインHTMLファイル（例: index.html）内の
+   <main class="presentation-content"> タグの、前スライドの </section> タグの直後にペーストしてください。
+
+【思想・運用について】
+- (01_title_slide.html と同様の思想・運用コメントをここに記述)
+
+【依存関係】
+- CSS:
+    - このパーツの基本的なスタイルは、対応するCSSファイル (例: 04_strengths_slide.css) に記述されています。
+    - `.slide`, `.slide-strengths-wp`, `.common-title`, `.title-bar`, `.strengths-grid-wp`,
+      `.strength-item-wp`, `.strength-icon-wp`, `.highlight` などのクラスに対するスタイルが必要です。
+- JavaScript: 特になし
+
+【カスタマイズのポイント】
+- スライドタイトル (<h2 class="common-title">内のテキスト)
+- 各強みアイテムのアイコン画像 (`<img class="strength-icon-wp">` の src属性) および altテキスト
+- 各強みアイテムの見出し (<h3>内のテキスト)
+- 各強みアイテムの説明文 (<p>内のテキスト)
+- 強調したい箇所の <span class="highlight"> の適用
+- 強みアイテムの数（必要に応じて .strength-item-wp を追加・削除）
+================================================================================
+
+↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+<section id="slide-strengths" class="slide slide-strengths-wp">
+    <div class="slide-content-wrapper"> <!-- ← 共通ラッパー (任意) -->
+        <h2 class="common-title">
+            <span class="title-bar"></span>私たちの強み：選ばれる理由 <!-- ← プレースホルダーに変更 -->
+        </h2>
+        <div class="strengths-grid-wp">
+            <div class="strength-item-wp">
+                <img src="images/placeholder-icon-strength1.png" alt="強み1のアイコン" class="strength-icon-wp" /> <!-- プロジェクト側でパス調整 -->
+                <h3>
+                    1. 強みその１<br /><span class="highlight">キーワード</span>を強調
+                </h3>
+                <p>
+                    ここに強みその１に関する具体的な説明文を記述します。顧客にとってどのようなメリットがあるのかを明確に伝えましょう。
+                </p>
+            </div>
+            <div class="strength-item-wp">
+                <img src="images/placeholder-icon-strength2.png" alt="強み2のアイコン" class="strength-icon-wp" /> <!-- プロジェクト側でパス調整 -->
+                <h3>
+                    2. 強みその２<br />独自の<span class="highlight">技術力</span>
+                </h3>
+                <p>
+                    ここに強みその２に関する具体的な説明文を記述します。他社との違いや独自性をアピールします。
+                </p>
+            </div>
+            <div class="strength-item-wp">
+                <img src="images/placeholder-icon-strength3.png" alt="強み3のアイコン" class="strength-icon-wp" /> <!-- プロジェクト側でパス調整 -->
+                <h3>
+                    3. 強みその３<br />充実の<span class="highlight">サポート</span>体制
+                </h3>
+                <p>
+                    ここに強みその３に関する具体的な説明文を記述します。顧客が安心して利用できるサポート体制について説明します。
+                </p>
+            </div>
+            <!-- 必要であれば4つ目の強みなどをここに追加 -->
+            <!--
+            <div class="strength-item-wp">
+                <img src="images/placeholder-icon-strength4.png" alt="強み4のアイコン" class="strength-icon-wp" />
+                <h3>
+                    4. 強みその４<br />さらなる<span class="highlight">付加価値</span>
+                </h3>
+                <p>
+                    ここに強みその４に関する具体的な説明文を記述します。
+                </p>
+            </div>
+            -->
+        </div>
+    </div>
+    <!-- <div class="print-page-break-adjuster"></div> -->
+</section>
+<!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

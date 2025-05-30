@@ -1,0 +1,100 @@
+<!--
+================================================================================
+パーツ名: パートナーシップモデルスライド (Partnership Model Slide)
+ファイル名: 07_partnership_slide.html
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+提携や協業の形態、成功へのステップなどを提示するためのスライド全体のHTML構造を提供します。
+複数のセクション（例: 理想のパートナー像、具体的なステップ）を並べて表示し、
+最後にまとめのメッセージや関連画像を含むことを想定しています。
+
+【使い方】
+1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」までの <section>...</section> 全体）をコピーしてください。
+2. 各プレゼンテーション資料のメインHTMLファイル（例: index.html）内の
+   <main class="presentation-content"> タグの、前スライドの </section> タグの直後にペーストしてください。
+
+【思想・運用について】
+- (01_title_slide.html と同様の思想・運用コメントをここに記述)
+
+【依存関係】
+- CSS:
+    - このパーツの基本的なスタイルは、対応するCSSファイル (例: 07_partnership_slide.css) に記述されています。
+    - `.slide`, `.slide-partnership-model-wp`, `.common-title`, `.title-bar`, `.partnership-sections-wp`,
+      `.ideal-partner-wp`, `.success-steps-wp`, `.partnership-steps-wp`, `.success-vision-wp`,
+      `.highlight`, `.slide-image`, `.medium` などのクラスに対するスタイルが必要です。
+- JavaScript: 特になし
+
+【カスタマイズのポイント】
+- スライドタイトル (<h2 class="common-title">内のテキスト)
+- 各セクションの見出し (<h3>内のテキスト)
+- 各セクションのリスト項目 (<ul><li>, <ol><li> 内のテキスト)
+- まとめメッセージ (<p class="success-vision-wp">内のテキスト)
+- 強調したい箇所の <span class="highlight"> の適用
+- 画像のパス (`<img class="slide-image medium">` の src属性) および altテキスト
+- セクションの数や内容は、必要に応じて変更してください。
+================================================================================
+
+↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+<section id="slide-partnership" class="slide slide-partnership-model-wp">
+    <div class="slide-content-wrapper"> <!-- ← 共通ラッパー (任意) -->
+        <h2 class="common-title">
+            <span class="title-bar"></span>協業・パートナーシップの形 <!-- ← プレースホルダーに変更 -->
+        </h2>
+
+        <div class="partnership-sections-wp">
+            <div class="ideal-partner-wp">
+                <h3>私たちが求めるパートナー像</h3>
+                <ul>
+                    <li>
+                        <span class="highlight">共通のビジョン</span>を共有し、共に成長を目指せる企業様
+                    </li>
+                    <li>
+                        各分野における<span class="highlight">専門知識と実績</span>をお持ちの企業様
+                    </li>
+                    <li>
+                        <span class="highlight">長期的かつ良好な関係</span>を築ける、信頼できる企業様
+                    </li>
+                </ul>
+            </div>
+
+            <div class="success-steps-wp">
+                <h3>成功に向けたステップ</h3>
+                <ol class="partnership-steps-wp">
+                    <li>
+                        <strong>1. 初回協議：</strong>お互いの理解を深め、目標を共有します。
+                    </li>
+                    <li>
+                        <strong>2. プランニング：</strong>具体的な協業計画と役割分担を明確にします。
+                    </li>
+                    <li>
+                        <strong>3. テスト導入：</strong>小規模なトライアルで効果を検証します。
+                    </li>
+                    <li>
+                        <strong>4. 本格展開：</strong>成果を基に、本格的なパートナーシップを開始します。
+                    </li>
+                    <li>
+                        <strong>5. 継続的改善：</strong>定期的なレビューと改善で、共に成長し続けます。
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <p class="success-vision-wp">
+            私たちは、貴社との<span class="highlight">強固なパートナーシップ</span>を通じて、
+            市場に新たな価値を創造し、<span class="highlight">共に大きな成功</span>を掴むことを目指しています。
+        </p>
+
+        <!-- 画像は任意で配置。不要な場合はこのimgタグを削除 -->
+        <img
+            src="images/placeholder-partnership.jpg" <!-- プロジェクト側でパス調整 -->
+            alt="パートナーシップのイメージ"
+            class="slide-image medium"
+        />
+    </div>
+    <!-- <div class="print-page-break-adjuster"></div> -->
+</section>
+<!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

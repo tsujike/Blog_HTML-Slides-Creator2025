@@ -1,66 +1,73 @@
 <!--
 ================================================================================
-パーツ名: アジェンダ/目次スライド コンテンツ (Agenda/Table of Contents Slide Content)
+パーツ名: アジェンダスライド (Agenda Slide)
 ファイル名: 02_agenda_slide.html
-作成日: YYYY-MM-DD (実際の作成日を入れてください)
-更新日: YYYY-MM-DD (実際の更新日を入れてください)
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
 バージョン: 1.0
 
 【説明】
-プレゼンテーションの目次や議題（アジェンダ）をリスト形式で表示するためのHTML構造を提供します。
-各項目がクリック可能である必要がなければ、シンプルなリスト構造になります。
+プレゼンテーションのアジェンダ（目次）を表示するスライド全体のHTML構造を提供します。
+スライドタイトルと、番号付きリスト形式のアジェンダ項目を含むことを想定しています。
 
 【使い方】
 1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
-   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
-2. 各プレゼンテーション資料のHTMLファイル内で、アジェンダを表示したい
-   <section class="slide slide-agenda"> (または同等のアジェンダ用クラスを持つ要素) の
-   コンテンツエリアにペーストしてください。
-   例:
-   <section class="slide slide-agenda">
-       <div class="slide-content"> <!-- この中にペースト -->
-           <!-- ここにアジェンダスライドのコンテンツをペースト -->
-       </div>
-       <!-- (もしあれば) print-page-break-adjuster など -->
-   </section>
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」までの <section>...</section> 全体）をコピーしてください。
+2. 各プレゼンテーション資料のメインHTMLファイル（例: index.html）内の
+   <main class="presentation-content"> タグの、前スライドの </section> タグの直後にペーストしてください。
+
+【思想・運用について】
+- (01_title_slide.html と同様の思想・運用コメントをここに記述)
 
 【依存関係】
 - CSS:
-    - このパーツの基本的なスタイルは、対応するCSSファイル (02_agenda_slide.css) に記述されています。
-    - 02_agenda_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
-    - このパーツは、親要素に `.slide` 及び `.slide-agenda` (またはアジェンダ用の類似クラス) が指定され、
-      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
-- JavaScript:
-    - 特になし (もしアジェンダ項目をクリックして特定のスライドにジャンプするなどの機能があれば、ここに記述)
+    - このパーツの基本的なスタイルは、対応するCSSファイル (例: 02_agenda_slide.css) に記述されています。
+    - `.slide`, `.slide-agenda-wp`, `.common-title`, `.title-bar`, `.agenda-list-wp`, `.agenda-item-wp` などのクラスに対するスタイルが必要です。
+- JavaScript: 特になし
 
 【カスタマイズのポイント】
-- スライドのタイトル (例: <h2>アジェンダ</h2>) は適宜変更可能です。
-- リスト項目 (<li>) のテキスト内容は、各プレゼンテーションのアジェンダに合わせて必ず変更・追加・削除してください。
-- リストの種類 (<ul>: 順序なしリスト, <ol>: 順序ありリスト) は必要に応じて変更してください。
-- 各リスト項目に付与するクラス名 (例: "agenda-item") は、対応するCSS (02_agenda_slide.css) でスタイルが定義されている場合、変更するとCSS側も修正が必要です。
-
-【基本的なHTML構造の注意】
-- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
-- HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
-  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
-- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
+- スライドタイトル (<h2 class="common-title">内のテキスト)
+- 各アジェンダ項目のテキスト (<span class="agenda-text">内のテキスト)
+- アジェンダ項目の数や順序
 ================================================================================
--->
 
-<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
-
-<!-- ここに02_agenda_slide.htmlの実際のHTMLコードが入ります -->
-<!-- 例: -->
-<!--
-<h2 class="agenda-title">本日のアジェンダ</h2>
-<ul class="agenda-list">
-    <li class="agenda-item">1. はじめに - プロジェクト概要</li>
-    <li class="agenda-item">2. 現状の課題と市場の機会</li>
-    <li class="agenda-item">3. ご提案するソリューション</li>
-    <li class="agenda-item">4. 導入事例と効果</li>
-    <li class="agenda-item">5. 価格プランと次のステップ</li>
-    <li class="agenda-item">6. まとめと質疑応答</li>
-</ul>
--->
-
+↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+<section id="agenda" class="slide slide-agenda-wp">
+    <div class="slide-content-wrapper"> <!-- ← 共通ラッパーに変更 (任意) -->
+        <h2 class="common-title">
+            <span class="title-bar"></span>本日のご提案内容 (Agenda)
+        </h2>
+        <ul class="agenda-list-wp">
+            <li class="agenda-item-wp">
+                <span class="agenda-number">1.</span>
+                <span class="agenda-text">はじめに：メキシコ市場の新たな可能性と私たちの挑戦</span>
+            </li>
+            <li class="agenda-item-wp">
+                <span class="agenda-number">2.</span>
+                <span class="agenda-text">なぜ日本産「チルド」なのか？：貴社のビジネスを加速させる機会</span>
+            </li>
+            <li class="agenda-item-wp">
+                <span class="agenda-number">3.</span>
+                <span class="agenda-text">TG GLOBALのご紹介：信頼できる供給パートナー</span>
+            </li>
+            <li class="agenda-item-wp">
+                <span class="agenda-number">4.</span>
+                <span class="agenda-text">TG GLOBALの強み：貴社の成功を導く3つの力</span>
+            </li>
+            <li class="agenda-item-wp">
+                <span class="agenda-number">5.</span>
+                <span class="agenda-text">課題への挑戦：「チルド輸入の壁」を共に突破する</span>
+            </li>
+            <li class="agenda-item-wp">
+                <span class="agenda-number">6.</span>
+                <span class="agenda-text">パートナーシップの形：メキシコ市場の未来を共に創る</span>
+            </li>
+            <li class="agenda-item-wp">
+                <span class="agenda-number">7.</span>
+                <span class="agenda-text">次のステップ：具体的な協業プランのご相談へ</span>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="print-page-break-adjuster"></div> --> <!-- 印刷レイアウトがCSSで制御できていれば不要なことが多い -->
+</section>
 <!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

@@ -5,6 +5,16 @@
 このプロジェクトは、HTML、CSS、JavaScriptをベースとした、ブラウザで表示・印刷・PDF出力が可能なプレゼンテーション資料作成ツールです。
 施策や顧客ごとに最適化された資料を効率的に作成し、チームでの共同作業を円滑にすることを目的としています。
 
+
+1. テンプレートコアは、新しいプロジェクトを作成する際の「出発点」として機能する。
+2. 個別のプロジェクトは、作成された時点のテンプレートコアのスナップショットを元に、独立してカスタマイズされ、進化していく。
+3. もし、ある個別プロジェクトで行った素晴らしい改善や新しいデザインパターンがあれば、それを**テンプレートコアにフィードバック（取り込み）**し、テンプレートコア自体をより良く育てていく。
+4. その結果、次に作成される新しいプロジェクトは、その「育った」最新のテンプレートコアの恩恵を受けることができる。
+5. しかし、過去に作成されたプロジェクトに対して、テンプレートコアの変更を遡って適用することは基本的に行わない（必要があれば個別対応）。
+
+この「テンプレートコアを育てる」という考え方は、継続的な改善と進化を促す素晴らしいアプローチです。まさにアジャイルな開発思想にも通じるものがありますね。
+これにより、テンプレートコアは常に最新のベストプラクティスやデザインを取り込み、時代遅れになるのを防ぐことができます。
+
 ## 特徴
 
 *   **ブラウザベース:** 特別なソフトウェアなしに、ウェブブラウザで資料を閲覧・表示できます。
@@ -14,20 +24,39 @@
 
 ## ディレクトリ構造 (推奨)
 
-Blog_HTML-Slides-Creator2025/
-├── css/
-│ ├── style.css # 画面表示用のメインCSS (各共通パーツCSSを@import)　共通パーツはbase_style.cssに
-│ └── print.css # 印刷時専用のメインCSS (@pageルール、@media printブロック) 共通パーツはbase_style_print.cssに
+├── _common_assets/
+│   ├── fonts/
+│   └── images/
+├── _common_parts/
+│   ├── 00_base_template_index.html
+│   ├── 01_title_slide.html
+│   ├── 01_title_slide.css
+│   └── ... (他のスライドパーツ※)
 │
-├── js/
-│ └── script.js # 共通のJavaScript (例: ヘッダー/フッターの動的挿入など)
+├── _css/
+│   ├── print.css
+│   ├── style.css
+│   └── slide-headerfooter.css
+├── _js/
+│   └── script_slide-headerfooter.js
 │
-├── assets/
-│ ├── images/
-│ │ ├── common/ # 共通で使うロゴなど (例: logo.png)
-│ │ └── slides/ # 各スライド特有の画像 (例: some_image.jpg)
-│ └── fonts/ # (Webフォントを使用する場合)
-│
+├── presentations/
+│   ├─01_nonproken_marketingbu/
+│   ├─ ... (他のプロジェクト)
+│   └─03_MyNewSalesPresentation/（新規作成ごとにプロジェクトを追加する）
+│          ├─ css/
+│          │   ├── print.css（テンプレートをコピーしてきて、独自スタイルは都度追記する）
+│          │   ├── style.css（テンプレートをコピーしてきて、独自スタイルは都度追記する）
+│          │   ├── slide-headerfooter.css（テンプレートをコピーするだけ）
+│          │   ├── 01_title_slide.css（テンプレートをコピーしてきて、独自スタイルは都度追記する）
+│          │   ├── 02_agend.css（テンプレートをコピーしてきて、独自スタイルは都度追記する）
+│          │   └── ... (他のスライドパーツ)
+│          ├─ js/
+│          │   └── slide-headerfooter.js（テンプレートをコピーするだけ）
+│          ├─ logo_tg_main.png
+└──────────└─ index.html（テンプレートをコピーしてきて、独自コンテンツは都度追記する）
+
+※│
 ├── _common_parts/            # 再利用可能なHTML断片とその基本スタイル
 │   ├── 00_slide_template.html          # (任意) スライドの基本枠組みテンプレート
 │   ├── 00_slide_template.css           # (任意) 上記テンプレートの基本スタイル
@@ -65,16 +94,6 @@ Blog_HTML-Slides-Creator2025/
 │   ├── base_style.css # 画面表示用のテンプレートCSS (各共通パーツCSSを@import)
 │   ├── base_templete_index.html
 │   └── script_slidefooter.html
-│
-├── presentations/ # 各個別プレゼンテーション資料
-│ ├── [資料名フォルダ1]/ # 例: client_A_proposal_202405
-│ │ ├── index.html # その資料のHTML本体　共通パーツはbase_templete_index.htmlに。
-│ │ └── assets/ # (任意) その資料特有の画像など
-│ └── [資料名フォルダ2]/
-│ └── index.html
-│
-├── .gitignore # Gitで無視するファイルやフォルダを指定
-└── README.md # プロジェクトの説明、運用ルールなど
 
 
 

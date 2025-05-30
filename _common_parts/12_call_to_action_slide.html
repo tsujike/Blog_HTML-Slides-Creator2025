@@ -1,84 +1,77 @@
 <!--
 ================================================================================
-パーツ名: CTA/行動喚起スライド コンテンツ (Call to Action Slide Content)
-ファイル名: 12_call_to_action_slide.html
-作成日: YYYY-MM-DD (実際の作成日を入れてください)
-更新日: YYYY-MM-DD (実際の更新日を入れてください)
+パーツ名: 行動喚起スライド (Call to Action Slide)
+ファイル名: 08_cta_slide.html
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
 バージョン: 1.0
 
 【説明】
-プレゼンテーションの最後に、聴衆に具体的な次の行動（問い合わせ、デモ依頼、
-資料請求、ウェブサイト訪問など）を促すためのHTML構造を提供します。
+プレゼンテーションの最後に、視聴者に対して次の行動を促すためのスライド全体のHTML構造を提供します。
+メッセージ、主要なCTAボタン、連絡先情報などを含むことを想定しています。
 
 【使い方】
 1. このファイルの内容（下の「↓↓↓ ここからパーツのHTML構造 ↓↓↓」から
-   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」まで）をコピーしてください。
-2. 各プレゼンテーション資料のHTMLファイル内で、行動喚起を行いたい
-   <section class="slide slide-cta"> (または同等のCTA用クラスを持つ要素) の
-   コンテンツエリアにペーストしてください。通常はプレゼンテーションの終盤に配置します。
-   例:
-   <section class="slide slide-cta">
-       <div class="slide-content"> <!-- この中にペースト -->
-           <!-- ここにCTAスライドのコンテンツをペースト -->
-       </div>
-       <!-- (もしあれば) print-page-break-adjuster など -->
-   </section>
+   「↑↑↑ ここまでパーツのHTML構造 ↑↑↑」までの <section>...</section> 全体）をコピーしてください。
+2. 各プレゼンテーション資料のメインHTMLファイル（例: index.html）内の
+   <main class="presentation-content"> タグの、前スライドの </section> タグの直後にペーストしてください。
+   (通常、プレゼンテーションの最後のスライドの一つとして使用されます)
+
+【思想・運用について】
+- (01_title_slide.html と同様の思想・運用コメントをここに記述)
 
 【依存関係】
 - CSS:
-    - このパーツの基本的なスタイルは、対応するCSSファイル (12_call_to_action_slide.css) に記述されています。
-    - 12_call_to_action_slide.css は、プロジェクトの主要なCSSファイル (例: css/style.css) から @import されることを想定しています。
-    - このパーツは、親要素に `.slide` 及び `.slide-cta` (またはCTA用スライドの類似クラス) が指定され、
-      さらにその内側に `.slide-content` クラスを持つ要素がある構造で使われることを想定しています。
-- JavaScript:
-    - 特になし (もしフォーム送信などのインタラクションがあれば、ここに記述)
+    - このパーツの基本的なスタイルは、対応するCSSファイル (例: 08_cta_slide.css) に記述されています。
+    - `.slide`, `.slide-cta-wp`, `.cta-content-wp`, `.common-title`, `.title-bar`, `.cta-lead-wp`,
+      `.cta-button-container-wp`, `.cta-button-main-wp`, `.icon-cta-wp`, `.contact-info-wp`, `.highlight`
+      などのクラスに対するスタイルが必要です。
+- JavaScript: 特になし
 
 【カスタマイズのポイント】
-- スライドのタイトル (例: <h2>次のステップへ</h2>, <h2>お気軽にお問い合わせください</h2>) は、促したい行動に合わせて適宜変更可能です。
-- 具体的にどのような行動を促すのか（例:「詳細はこちらのQRコードから」「無料デモのお申し込みはこちら」）を明確に記述します。
-- 問い合わせ先の情報（電話番号、メールアドレス、ウェブサイトURL、QRコードなど）を分かりやすく掲載します。
-- ボタンや目立つデザイン要素を使って、行動を促す部分を強調することが効果的です。
-- 各要素に付与するクラス名 (例: "cta-button", "contact-info") は、対応するCSS (12_call_to_action_slide.css) でスタイルが定義されている場合、変更するとCSS側も修正が必要です。
-
-【基本的なHTML構造の注意】
-- このHTML断片は、完全なHTMLページではありません。既存のHTML文書の <body> タグ内の適切な場所に挿入して使用してください。
-- HTMLの要素は正しく開始タグと終了タグで囲み、適切に入れ子にしてください。
-  (例: <p>テキスト<strong>強調</strong></p> はOK、<p>テキスト<strong>強調</p></strong> はNG)
-- クラス名やID名は、プロジェクト全体の命名規則やCSS設計と整合性を取るようにしてください。
+- スライドタイトル (<h2 class="common-title">内のテキスト)
+- 行動を促すメッセージ (<p>タグ内のテキスト)
+- CTAボタンのテキストおよびリンク先 (`<a>` タグの href属性と内部テキスト)
+    - mailtoリンクの宛先、件名、本文テンプレート
+    - SVGアイコンの変更や削除
+- 連絡先情報 (<div class="contact-info-wp">内の各情報)
+    - 会社名、担当者名、Email、電話番号、ウェブサイトURLなど
 ================================================================================
--->
 
-<!-- ↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+↓↓↓ ここからパーツのHTML構造 ↓↓↓ -->
+<section id="slide-cta" class="slide slide-cta-wp">
+    <div class="slide-content-wrapper cta-content-wp"> <!-- ← cta-content-wp は slide-content-wrapper に統合しても良いかも -->
+        <h2 class="common-title">
+            <span class="title-bar"></span>次のステップへ <!-- ← プレースホルダーに変更 -->
+        </h2>
+        <p>
+            本日のご提案内容にご興味をお持ちいただけましたでしょうか？
+            もし、さらに詳しい情報をご希望の場合や、具体的なご相談がございましたら、ぜひお気軽にお声がけください。
+        </p>
+        <p class="cta-lead-wp">
+            まずは、<strong>簡単なオンラインミーティング（約30分）</strong>にて、貴社のご状況やご要望を詳しくお伺いできれば幸いです。
+        </p>
+        <div class="cta-button-container-wp">
+            <a
+              href="mailto:your-email@example.com?subject=【お問い合わせ】貴社名_プレゼンテーションの件&body=ご担当者様%0D%0A%0D%0Aいつもお世話になっております。株式会社（貴社名）の（ご担当者名）です。%0D%0A%0D%0A先日拝見いたしましたプレゼンテーションについて、以下の件でお伺いしたくご連絡いたしました。%0D%0A%0D%0A[ご相談内容をご記入ください]%0D%0A%0D%0Aつきましては、一度オンラインミーティングの機会をいただければ幸いです。%0D%0A候補日時をいくつかお送りいたします。%0D%0A%0D%0A何卒よろしくお願い申し上げます。"
+              class="cta-button-main-wp"
+            >
+              <span class="icon-cta-wp">
+                <!-- アイコンSVGは汎用的なものにするか、プロジェクト側で差し替え -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z" fill="currentColor"/></svg>
+              </span>
+              お問い合わせ・個別相談はこちら
+            </a>
+        </div>
 
-<!-- ここに12_call_to_action_slide.htmlの実際のHTMLコードが入ります -->
-<!-- 例: 問い合わせとウェブサイトへの誘導を促すCTA -->
-<!--
-<h2 class="cta-slide-title">さあ、始めましょう！</h2>
-
-<div class="cta-message">
-    <p>私たちのソリューションにご興味をお持ちいただけましたでしょうか？<br>
-    お客様のビジネスを成功に導くため、ぜひ一度詳しいお話をさせてください。</p>
-</div>
-
-<div class="cta-actions-container">
-    <div class="cta-action-item">
-        <h3 class="action-title">個別相談・デモのご予約</h3>
-        <p class="action-description">お客様の具体的な課題やご要望に合わせて、最適な活用方法をご提案します。</p>
-        <a href="[予約ページのURL]" class="cta-button primary-cta-button">無料相談を予約する</a>
+        <div class="contact-info-wp">
+            <p><strong>株式会社YOUR COMPANY</strong></p>
+            <p>担当: 〇〇部 〇〇 〇〇</p>
+            <p>Email: your-contact-email@example.com</p>
+            <p>電話: 00-0000-0000</p>
+            <p>ウェブサイト: https://www.example.com</p>
+        </div>
     </div>
-    <div class="cta-action-item">
-        <h3 class="action-title">資料ダウンロード・詳細情報</h3>
-        <p class="action-description">本日の資料や、より詳しい製品情報をウェブサイトでご覧いただけます。</p>
-        <a href="[資料ダウンロードページやウェブサイトのURL]" class="cta-button secondary-cta-button">ウェブサイトを見る</a>
-        <img src="../../assets/images/common/qr_code_website.png" alt="ウェブサイトQRコード" class="qr-code">
-    </div>
-</div>
-
-<div class="contact-information">
-    <h4>お問い合わせ先</h4>
-    <p>株式会社〇〇</p>
-    <p>電話: 03-XXXX-XXXX / Email: info@example.com</p>
-</div>
--->
-
+    <!-- <div class="print-page-break-adjuster"></div> -->
+</section>
 <!-- ↑↑↑ ここまでパーツのHTML構造 ↑↑↑ -->

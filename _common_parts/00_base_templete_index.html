@@ -1,0 +1,94 @@
+<!--
+================================================================================
+ファイル名: 00_base_template_index.html
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+このファイルは、「Blog_HTML-Slide-Creator2025」テンプレートシステムの
+基本的なHTML骨格（スケルトン）を提供します。
+新しいプレゼンテーション資料を作成する際の出発点（index.html の元）となります。
+共通の <head> 要素（メタタグ、CSS/JSの基本的な読み込み指定など）と、
+スライドパーツが挿入される <main class="presentation-content"> 構造を含みます。
+
+【使い方】
+1. 新しいプレゼンテーションプロジェクトを作成する際、このファイルをプロジェクトの
+   ルートディレクトリに `index.html` という名前でコピーしてください。
+2. コピーした `index.html` の <title> タグや、必要に応じてメタタグの内容を、
+   作成するプレゼンテーションに合わせて編集してください。
+3. CSSやJavaScriptファイルの <link> タグや <script> タグのパス (`href` や `src`) が、
+   プロジェクト内の正しいファイル場所（例: `css/style.css`, `js/script_slide-headerfooter.js`）を
+   指しているか確認・修正してください。
+   (このベーステンプレート内のパスは、テンプレートコア内からの相対パスになっている場合があります)
+4. <main class="presentation-content"> の中に、必要なスライドパーツ
+   （例: `_common_parts/01_title_slide.html` の内容）をコピー＆ペーストして、
+   スライド資料を構築していきます。
+
+【思想・運用について】
+- このテンプレートシステムは、共通パーツをコピーして新しい資料を効率的に作成することを目的としています。
+- 各プレゼンテーションプロジェクトは、作成時にテンプレートコアのスナップショットを元に、
+  独立してカスタマイズされ、進化します。
+- テンプレートコア（このファイルや `_common_parts` 以下のパーツを含む）が更新されても、
+  過去に作成されたプロジェクトのデザインには自動で反映されません（非可逆な更新）。
+- 新しいプロジェクトでテンプレートパーツを改善した場合、その知見をテンプレートコアに
+  フィードバックし、テンプレートコア自体を育てていくことを推奨します。
+  これにより、次に作成される新しいプロジェクトは、その「育った」最新のテンプレートコアの
+  恩恵を受けることができます。
+
+【依存関係】
+- CSS:
+    - このHTMLから参照される主要なCSSファイル（例: style.css, print.css, slide-headerfooter.css）は、
+      各プロジェクトの `css` フォルダに配置されることを想定しています。
+    - `style.css` は、通常、各スライドパーツのCSSを `@import` する役割も持ちます。
+- JavaScript:
+    - このHTMLから参照される主要なJavaScriptファイル（例: script_slide-headerfooter.js）は、
+      各プロジェクトの `js` フォルダに配置されることを想定しています。
+
+【カスタマイズのポイント】
+- <title> タグの内容
+- 各種メタタグ（SEO関連、OGPなど）
+- Favicon のパス
+- 外部フォントの読み込み指定
+- CSS および JavaScript ファイルのパス（プロジェクト構造に合わせて）
+
+【このファイル自体のHTML構造について】
+- このファイルは、完全なHTML5文書の基本構造を提供します。
+- `presentation-content` クラスを持つ <main> 要素が、スライドコンテンツの
+  メインコンテナとして機能します。
+================================================================================
+
+↓↓↓ ここからベースHTMLの構造 ↓↓↓ -->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ↓ ページタイトル: 各プロジェクト作成時に具体的な内容に書き換える -->
+    <title>A4 HTML Slides Creator</title>
+
+    <!-- ↓ CSSファイルの読み込み (パスはテンプレートコア内からの相対パスを想定) -->
+    <link rel="stylesheet" href="../../_css/style.css" />
+    <link rel="stylesheet" href="../../_css/print.css" media="print" />
+    <link
+      rel="stylesheet"
+      href="../../_css/slide-headerfooter.css"
+      media="print"
+    />
+</head>
+
+<body>
+    <main class="presentation-content">
+        <p style="text-align:center; padding: 2em; color: #777;">
+            （スライドコンテンツはここに挿入されます）
+        </p>
+    </main>
+
+    <script
+      src="../../_js/script_slide-headerfooter.js"
+      defer
+    ></script>
+</body>
+</html>
+<!-- ↑↑↑ ここまでベースHTMLの構造 ↑↑↑ -->

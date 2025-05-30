@@ -1,0 +1,190 @@
+/*
+================================================================================
+ファイル名: style.css (テンプレートコア)
+作成日: YYYY-MM-DD
+更新日: YYYY-MM-DD
+バージョン: 1.0
+
+【説明】
+このファイルは、「Blog_HTML-Slide-Creator2025」テンプレートシステムの
+画面表示時における主要なスタイルを定義します。
+CSS変数の定義、基本的なリセットCSS、bodyの基本スタイル、
+全スライド共通のスタイル（.slideクラス）、および各スライドパーツCSSの
+インポートを含みます。
+
+【使い方】
+新しいプレゼンテーションプロジェクトを作成する際、このファイルをプロジェクトの
+`css` フォルダに `style.css` という名前でコピーしてください。
+プロジェクト固有のスタイルや、パーツCSSのインポートパスの調整は、
+コピー先のファイルで行います。
+運用として、各パーツCSSもプロジェクトの `css` フォルダにコピーし、
+このファイルからは `@import url("XX_slide_name.css");` のように
+同じ階層のファイルをインポートすることを推奨します。
+
+【思想・運用について】
+- このファイルで定義されるCSS変数や共通スタイルは、テンプレート全体の一貫性を保つための基盤となります。
+- 各スライドパーツの具体的なスタイルは、別途パーツCSSファイルで定義され、ここで@importされます。
+- テンプレートコアの更新は非可逆であり、過去のプロジェクトには自動反映されません。
+  新しいプロジェクトで改善点があれば、このテンプレートコアにフィードバックすることを推奨します。
+
+【依存関係】
+- HTML: _common_parts/00_base_template_index.html (およびそれから生成される各プロジェクトのindex.html)
+- CSS: _common_parts/ フォルダ内の各パーツCSSファイル (例: 01_title_slide.css)
+================================================================================
+*/
+
+@charset "UTF-8";
+
+
+/* ================================================== */
+/* =========== Import Slide Parts CSS =============== */
+/* ================================================== */
+/*
+   注意: 以下のパスは、この style.css がテンプレートコアの `_css` フォルダにあり、
+         各パーツCSSがテンプレートコアの `_common_parts` フォルダにあることを前提としています。
+         例: ../_common_parts/01_title_slide.css
+
+   実際にプロジェクトにこの style.css がコピーされた際は、運用方針に従い、
+   プロジェクト側のcssフォルダから、同じくプロジェクト側のcssフォルダにコピーされた
+   各パーツCSSを読み込むようにパスを調整します（例: @import url("01_title_slide.css");）。
+*/
+@import url("../_common_parts/01_title_slide.css");
+@import url("../_common_parts/02_agenda_slide.css");
+@import url("../_common_parts/03_company_profile_slide.css");
+@import url("../_common_parts/04_mission_vision_slide.css"); /* mission_vision_values_slide.css かもしれない */
+@import url("../_common_parts/05_problem_statement_slide.css");
+@import url("../_common_parts/06_solution_overview_slide.css");
+@import url("../_common_parts/07_product_detail_slide.css");
+@import url("../_common_parts/08_case_study_slide.css");
+@import url("../_common_parts/09_team_introduction_slide.css");
+@import url("../_common_parts/10_pricing_table_slide.css"); /* pricing_table.css かもしれない */
+@import url("../_common_parts/11_comparison_table_slide.css"); /* comparison_table.css かもしれない */
+@import url("../_common_parts/12_call_to_action_slide.css");
+@import url("../_common_parts/13_thank_you_slide.css");
+@import url("../_common_parts/14_section_divider_slide.css");
+@import url("../_common_parts/15_image_full_bleed_slide.css");
+/* ... (今後作成する他の共通パーツCSSをここに追加) ... */
+
+
+
+/* ================================================== */
+/* =============== CSS Variables (WP) =============== */
+/* ================================================== */
+:root {
+    /* カラーパレット (納品コードのものをベースに調整) */
+    --color-primary-wp: #2c3e50;
+    --color-secondary-wp: #3498db;
+    --color-accent-wp: #e74c3c;
+    --color-text-wp: #2c3e50;
+    --color-heading-wp: #2c3e50;
+    --color-white-wp: #ffffff;
+    --color-light-gray-wp: #f5f6fa;
+    --color-border-wp: #e1e1e1;
+    --color-black-wp: #000000; /* print.css で使用する可能性も考慮 */
+
+    /* タイポグラフィ */
+    --font-family-base-wp: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --font-family-heading-wp: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --base-font-size-px: 16px; /* rem計算の基準 (htmlのfont-size: 62.5% と連動させる場合) */
+
+    /* スペーシング */
+    --slide-padding-v-wp: 3rem;  /* 画面表示時のスライド上下パディング */
+    --slide-padding-h-wp: 4rem;  /* 画面表示時のスライド左右パディング */
+    --content-max-width-wp: 960px; /* スライド内コンテンツの最大幅 */
+
+    /* シャドウ */
+    --shadow-sm-wp: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md-wp: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* 印刷用変数 (print.cssやslide-headerfooter.cssで参照) */
+    --print-header-height: 30px;
+    --print-footer-height: 25px;
+}
+
+
+/* ================================================== */
+/* ============ Basic Resets & Defaults ============= */
+/* ================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 1rem = 10px (10px / 16px * 100% = 62.5%) */
+}
+
+body {
+    font-family: var(--font-family-base-wp);
+    font-size: 1.6rem; /* 16px相当 (htmlのfont-size設定に依存) */
+    color: var(--color-text-wp);
+    line-height: 1.7;
+    background-color: var(--color-light-gray-wp); /* 画面全体の背景色 (スライド外) */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex; /* フッターを最下部に固定するレイアウトの準備（任意） */
+    flex-direction: column; /* フッターを最下部に固定するレイアウトの準備（任意） */
+    min-height: 100vh; /* フッターを最下部に固定するレイアウトの準備（任意） */
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul, ol {
+    list-style-position: inside; /* リストマーカーの位置 (任意) */
+}
+
+a {
+    color: var(--color-secondary-wp);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading-wp);
+    color: var(--color-heading-wp);
+    line-height: 1.3;
+    margin-bottom: 1rem; /* 見出しのデフォルト下マージン */
+}
+
+/* ================================================== */
+/* =============== Slide Common Styles ============== */
+/* ================================================== */
+.presentation-content { /* <main> タグ */
+    flex-grow: 1; /* フッターを最下部に固定するレイアウト（bodyがflexの場合） */
+}
+
+.slide {
+    padding: var(--slide-padding-v-wp) var(--slide-padding-h-wp);
+    min-height: 100vh; /* 画面表示時に最低でもビューポートの高さにする */
+    background-color: var(--color-white-wp); /* 各スライドのデフォルト背景色 */
+    border-bottom: 1px solid var(--color-border-wp); /* スライド間の区切り線 (任意) */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */ /* スライドタイプによって変えるため、ここでは指定しないか、flex-startに */
+    /* align-items: center; */ /* スライドタイプによって変えるため、ここでは指定しないか、stretchに */
+    position: relative;
+    overflow: hidden; /* スライドからはみ出す要素を隠す (画面表示時) */
+}
+.slide:last-child {
+    border-bottom: none; /* 最後のスライドの区切り線は消す */
+}
+
+/* スライド内コンテンツの共通ラッパー (必要であれば) */
+.slide-content-wrapper {
+    max-width: var(--content-max-width-wp);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding: 0 1rem; */ /* 左右に少し余白を持たせる場合 */
+}
+
